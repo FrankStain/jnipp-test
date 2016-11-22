@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion project.compileSdkVersion
+    buildToolsVersion project.buildToolsVersion
+
+    defaultConfig {
+        applicationId       'com.pfs.jnipptest'
+        minSdkVersion       project.minSdkVersion
+        targetSdkVersion    project.targetSdkVersion
+        versionCode         1
+        versionName         '0.0.1'
+    }
+
+    sourceSets.main {
+        manifest.srcFile    'sources/AndroidManifest.xml'
+        aidl.srcDirs        = [ 'sources/aidl' ]
+        assets.srcDirs      = [ 'sources/assets' ]
+        java.srcDirs        = [ 'sources/src' ]
+        jni.srcDirs         = [ 'sources/jni' ]
+        jniLibs.srcDirs     = [ 'sources/libs' ]
+        res.srcDirs         = [ 'sources/res' ]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree( dir: 'libs', include: ['*.jar'] )
+}

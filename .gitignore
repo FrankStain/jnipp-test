@@ -1,0 +1,13 @@
+*.iml
+*.VC.DB
+*errors.txt
+*.keystore
+.gradle/
+.idea/
+.DS_Store
+__pycache__/
+build/
+captures/
+libs/
+obj/
+local.properties
