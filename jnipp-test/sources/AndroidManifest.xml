@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pfs.jnipptest"
+    package="nothing"
     android:installLocation="preferExternal">
 
     <application
@@ -11,9 +11,8 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="true"
         android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-        <meta-data android:name="android.app.lib_name" android:value="winapp" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.pfs.jnipptest.MainActivity"
             android:stateNotNeeded="true"
             android:finishOnTaskLaunch="true"
             android:clearTaskOnLaunch="true"
