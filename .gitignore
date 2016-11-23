@@ -2,6 +2,7 @@
 *.VC.DB
 *errors.txt
 *.keystore
+.externalNativeBuild
 .gradle/
 .idea/
 .DS_Store
