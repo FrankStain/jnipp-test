@@ -1,0 +1,3 @@
+[submodule "submodules/jnipp"]
+	path = submodules/jnipp
+	url = git@github.com:FrankStain/jnipp.git
