@@ -14,9 +14,9 @@ include $(CLEAR_VARS)
 $(call import-add-path, $(LOCAL_PATH)/../../../submodules)
 
 
-LOCAL_PATH				:= $(call my-dir)/source
+LOCAL_PATH				:= $(LOCAL_PATH)/source
 LOCAL_MODULE			:= jnipp-test
-LOCAL_C_INCLUDES		:= $(LOCAL_PATH)
+LOCAL_C_INCLUDES		:= $(LOCAL_PATH)/include
 LOCAL_SRC_FILES			:= $(patsubst $(LOCAL_PATH)/%, %, $(filter %.cpp, $(call lookup-files, $(LOCAL_PATH))))
 LOCAL_STATIC_LIBRARIES	:= jnipp
 
