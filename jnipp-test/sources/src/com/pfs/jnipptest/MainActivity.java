@@ -8,8 +8,8 @@ import nothing.R;
 public class MainActivity extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate( Bundle savedInstanceState ) {
+        super.onCreate( savedInstanceState );
         setContentView( R.layout.main_layout );
     }
 
@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
         }
 
         m_test_runner = new NativeTestsRunner( this );
+        m_test_runner.StartTests();
     }
 
     @Override
