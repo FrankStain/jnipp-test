@@ -13,7 +13,27 @@ public class MainActivity extends Activity {
         setContentView( R.layout.main_layout );
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        if( m_test_runner != null ){
+            return;
+        }
+
+        m_test_runner = new NativeTestsRunner( this );
+    }
+
+    @Override
+    protected void onStop()
+    {
+        super.onStop();
+        m_test_runner = null;
+    }
+
     static {
         System.loadLibrary( "jnipp-test" );
     }
+
+    private NativeTestsRunner m_test_runner = null;
 }
