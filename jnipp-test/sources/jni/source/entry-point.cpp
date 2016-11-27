@@ -1,6 +1,7 @@
 // Copyright since 2016 : Evgenii Shatunov (github.com/FrankStain/jnipp)
 // Apache 2.0 License
 #include <main.h>
+#include "NativeTestsRunner.h"
 
 #define _ENTRY_POINT_LOGS
 
@@ -18,6 +19,7 @@ extern "C"
 	{
 		LOG_DBG( "Attempt to initialize Jni++." );
 		CRET_E( !jnipp::VirtualMachine::Initialize( vm ), -1, "Failed to initialize Jni++ interface." );
+		CRET_E( !NativeTestsRunner::RegisterNatives(), -1, "Failed to register natives for `NativeTestsRunner`." );
 
 		LOG_DBG( "Jni++ initialized." );
 		return jnipp::VirtualMachine::JNI_VERSION;
