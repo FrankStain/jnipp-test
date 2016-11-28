@@ -20,13 +20,18 @@ void NativeTestsRunner::StartTests()
 	jnipp::logging::Verbose( "Launching Jni++ tests." );
 	std::shared_ptr<NativeTestsRunner> runner{ std::make_shared<NativeTestsRunner>() };
 
-	runner->m_thread = std::thread{ NativeTestsRunner::ThreadRoutine, std::move( runner ) };
+	runner->m_thread = std::thread{
+		[runner]()
+		{
+			runner->ThreadMain();
+			runner->m_thread.detach();
+		}
+	};
+
 	jnipp::logging::Verbose( "Jni++ tests launched." );
 };
 
-void NativeTestsRunner::ThreadRoutine( std::shared_ptr<NativeTestsRunner> runner )
+void NativeTestsRunner::ThreadMain()
 {
 	jnipp::logging::Verbose( "Jni++ tests here." );
-
-	runner->m_thread.detach();
 };

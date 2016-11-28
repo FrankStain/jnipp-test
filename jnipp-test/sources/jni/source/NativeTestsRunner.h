@@ -14,7 +14,7 @@ public:
 private:
 	static void StartTests();
 
-	static void ThreadRoutine( std::shared_ptr<NativeTestsRunner> runner );
+	void ThreadMain();
 
 private:
 	std::thread	m_thread;
