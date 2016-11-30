@@ -1,6 +1,9 @@
 // Copyright since 2016 : Evgenii Shatunov (github.com/FrankStain/jnipp-test)
 // Apache 2.0 License
 #include "NativeTestsRunner.h"
+#include "TestsReporter.h"
+
+#include <gtest/gtest.h>
 
 
 const bool NativeTestsRunner::RegisterNatives()
@@ -33,5 +36,11 @@ void NativeTestsRunner::StartTests()
 
 void NativeTestsRunner::ThreadMain()
 {
-	jnipp::logging::Verbose( "Jni++ tests here." );
+	const char* argv[] = { "library.so", nullptr };
+
+	int32_t argc = sizeof( argv ) / sizeof( argv[0] );
+
+	testing::InitGoogleTest( &argc, const_cast<char**>( argv ) );
+	testing::UnitTest::GetInstance()->listeners().Append( new TestsReporter( this ) );
+	jnipp::logging::Info( "Tests result code - %d", RUN_ALL_TESTS() );
 };
