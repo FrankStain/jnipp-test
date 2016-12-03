@@ -11,14 +11,16 @@ import nothing.R;
 
 final class NativeTestsRunner
 {
-	NativeTestsRunner( Activity host_activity ) {
-		m_activity				= host_activity;
-		ListView results_list	= (ListView)m_activity.findViewById( R.id.lv_tests );
-		m_results_adapter		= new TestResultsAdapter( m_activity, m_results );
+	NativeTestsRunner( Activity host_activity )
+	{
+		m_activity = host_activity;
+		ListView results_list = (ListView)m_activity.findViewById( R.id.lv_tests );
+		m_results_adapter = new TestResultsAdapter( m_activity, m_results );
 		results_list.setAdapter( m_results_adapter );
 	}
 
-	void OnTestStarted( final String test_name ) {
+	void OnTestStarted( final String test_name )
+	{
 		m_activity.runOnUiThread( new Runnable()
 		{
 			@Override
@@ -32,14 +34,16 @@ final class NativeTestsRunner
 		} );
 	}
 
-	void OnTestMessage( final String test_name, final String test_message ) {
+	void OnTestMessage( final String test_name, final String test_message )
+	{
 		m_activity.runOnUiThread( new Runnable()
 		{
 			@Override
 			public void run()
 			{
 				TestResult test_result = m_indexed_results.get( test_name );
-				if( test_result == null ) {
+				if( test_result == null )
+				{
 					return;
 				}
 
@@ -49,14 +53,16 @@ final class NativeTestsRunner
 		} );
 	}
 
-	void OnTestFinished( final String test_name, final boolean is_passed ) {
+	void OnTestFinished( final String test_name, final boolean is_passed )
+	{
 		m_activity.runOnUiThread( new Runnable()
 		{
 			@Override
 			public void run()
 			{
 				TestResult test_result = m_indexed_results.get( test_name );
-				if( test_result == null ) {
+				if( test_result == null )
+				{
 					return;
 				}
 
@@ -69,8 +75,8 @@ final class NativeTestsRunner
 
 	native void StartTests();
 
-	private Activity					m_activity			= null;
-	private TestResultsAdapter			m_results_adapter	= null;
-	private ArrayList<TestResult>		m_results			= new ArrayList<>();
-	private HashMap<String, TestResult> m_indexed_results	= new HashMap<>();
+	private Activity m_activity = null;
+	private TestResultsAdapter m_results_adapter = null;
+	private ArrayList<TestResult> m_results = new ArrayList<>();
+	private HashMap<String, TestResult> m_indexed_results = new HashMap<>();
 }

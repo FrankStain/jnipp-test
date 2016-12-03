@@ -16,9 +16,9 @@ final class TestResultsAdapter extends BaseAdapter
 
 	TestResultsAdapter( Context host_context, ArrayList<TestResult> results )
 	{
-		m_layout_inflater	= (LayoutInflater)host_context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
-		m_host_context		= host_context;
-		m_results			= results;
+		m_layout_inflater = (LayoutInflater)host_context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+		m_host_context = host_context;
+		m_results = results;
 	}
 
 	@Override
@@ -42,8 +42,8 @@ final class TestResultsAdapter extends BaseAdapter
 	@Override
 	public View getView( int position, View convertView, ViewGroup parent )
 	{
-		TestResult result	= m_results.get( position );
-		View element_view	= result.GetView();
+		TestResult result = m_results.get( position );
+		View element_view = result.GetView();
 		if( element_view != null )
 		{
 			return element_view;

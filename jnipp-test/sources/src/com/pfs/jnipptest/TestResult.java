@@ -23,11 +23,11 @@ final class TestResult
 
 	void SetView( View view )
 	{
-		m_view		= view;
+		m_view = view;
 
-		m_progress			= (ProgressBar)view.findViewById( R.id.pb_test );
-		TextView caption	= (TextView)view.findViewById( R.id.tv_test_name );
-		m_status			= (TextView)view.findViewById( R.id.tv_test_result );
+		m_progress = (ProgressBar)view.findViewById( R.id.pb_test );
+		TextView caption = (TextView)view.findViewById( R.id.tv_test_name );
+		m_status = (TextView)view.findViewById( R.id.tv_test_result );
 
 		caption.setText( m_name );
 
