@@ -38,7 +38,8 @@ void TestsReporter::OnTestCaseStart( const testing::TestCase& test_case )
 
 void TestsReporter::OnTestStart( const testing::TestInfo& test_info )
 {
-	jnipp::logging::Verbose( "[ ] %s.%s", test_info.test_case_name(), test_info.name() );
+	jnipp::logging::Verbose( "[ ] %s:%s", test_info.test_case_name(), test_info.name() );
+	m_runner->OnTestStarted( test_info.test_case_name(), test_info.name() );
 };
 
 void TestsReporter::OnTestPartResult( const testing::TestPartResult& test_part_result )
@@ -59,7 +60,7 @@ void TestsReporter::OnTestEnd( const testing::TestInfo& test_info )
 {
 	if( test_info.result()->Passed() )
 	{
-		jnipp::logging::Info( "[+] %s.%s", test_info.test_case_name(), test_info.name() );
+		jnipp::logging::Info( "[+] %s:%s", test_info.test_case_name(), test_info.name() );
 	}
 	else
 	{
@@ -71,8 +72,10 @@ void TestsReporter::OnTestEnd( const testing::TestInfo& test_info )
 			jnipp::logging::Error( "Type argument == `%s`; Value == `%s`", type_param, value_param );
 		};
 
-		jnipp::logging::Error( "[-] %s.%s", test_info.test_case_name(), test_info.name() );
+		jnipp::logging::Error( "[-] %s:%s", test_info.test_case_name(), test_info.name() );
 	};
+
+	m_runner->OnTestFinished( test_info.test_case_name(), test_info.name(), test_info.result()->Passed() );
 };
 
 void TestsReporter::OnTestCaseEnd( const testing::TestCase& test_case )
