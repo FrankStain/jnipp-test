@@ -38,7 +38,7 @@ void NativeTestsRunner::ThreadMain()
 {
 	const char* argv[] = { "library.so", nullptr };
 
-	int32_t argc = sizeof( argv ) / sizeof( argv[0] );
+	int32_t argc = ( sizeof( argv ) / sizeof( argv[0] ) ) - 1;
 
 	testing::InitGoogleTest( &argc, const_cast<char**>( argv ) );
 	testing::UnitTest::GetInstance()->listeners().Append( new TestsReporter( this ) );
