@@ -11,62 +11,71 @@ template< typename TReturnType, typename... TArgumentTypes >
 using JniStaticFunction = TReturnType (*)( JNIEnv*, jclass, TArgumentTypes... );
 
 
+#define DECLARE_TEST_MEMBER_FUNC( FUNC_RESULT, ... )									\
+jnipp::NativeFunction func{																\
+	"test_func",																		\
+	JniMemberFunction<FUNC_RESULT, ##__VA_ARGS__>{										\
+		[]( JNIEnv*, jobject, ##__VA_ARGS__ ) -> FUNC_RESULT { return FUNC_RESULT(); }	\
+	}																					\
+}
+
+
 TEST( TestNativeFunction, VoidNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<void>{ []( JNIEnv*, jobject ) -> void { ; } } };
+	DECLARE_TEST_MEMBER_FUNC( void );
 	EXPECT_STREQ( "()V", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, BooleanNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jboolean>{ []( JNIEnv*, jobject ) -> jboolean { return JNI_TRUE; } } };
+	DECLARE_TEST_MEMBER_FUNC( jboolean );
 	EXPECT_STREQ( "()Z", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, StringNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jstring>{ []( JNIEnv*, jobject ) -> jstring { return nullptr; } } };
+	DECLARE_TEST_MEMBER_FUNC( jstring );
 	EXPECT_STREQ( "()Ljava/lang/String;", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, FloatNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jfloat>{ []( JNIEnv*, jobject ) -> jfloat { return 0.0f; } } };
+	DECLARE_TEST_MEMBER_FUNC( jfloat );
 	EXPECT_STREQ( "()F", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, DoubleNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jdouble>{ []( JNIEnv*, jobject ) -> jdouble { return 0.0; } } };
+	DECLARE_TEST_MEMBER_FUNC( jdouble );
 	EXPECT_STREQ( "()D", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, ByteNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jbyte>{ []( JNIEnv*, jobject ) -> jbyte { return 0; } } };
+	DECLARE_TEST_MEMBER_FUNC( jbyte );
 	EXPECT_STREQ( "()B", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, CharNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jchar>{ []( JNIEnv*, jobject ) -> jchar { return 0; } } };
+	DECLARE_TEST_MEMBER_FUNC( jchar );
 	EXPECT_STREQ( "()C", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, ShortNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jshort>{ []( JNIEnv*, jobject ) -> jshort { return 0; } } };
+	DECLARE_TEST_MEMBER_FUNC( jshort );
 	EXPECT_STREQ( "()S", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, IntNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jint>{ []( JNIEnv*, jobject ) -> jint { return 0; } } };
+	DECLARE_TEST_MEMBER_FUNC( jint );
 	EXPECT_STREQ( "()I", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, LongNoArgs )
 {
-	jnipp::NativeFunction func{ "func", JniMemberFunction<jlong>{ []( JNIEnv*, jobject ) -> jlong { return 0; } } };
+	DECLARE_TEST_MEMBER_FUNC( jlong );
 	EXPECT_STREQ( "()L", func.signature.c_str() );
 };
