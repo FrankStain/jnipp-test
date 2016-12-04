@@ -20,62 +20,68 @@ jnipp::NativeFunction func{																\
 }
 
 
-TEST( TestNativeFunction, VoidNoArgs )
+TEST( TestNativeFunction, SignatureVoidNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( void );
 	EXPECT_STREQ( "()V", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, BooleanNoArgs )
+TEST( TestNativeFunction, SignatureBooleanNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jboolean );
 	EXPECT_STREQ( "()Z", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, StringNoArgs )
+TEST( TestNativeFunction, SignatureStringNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jstring );
 	EXPECT_STREQ( "()Ljava/lang/String;", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, FloatNoArgs )
+TEST( TestNativeFunction, SignatureFloatNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jfloat );
 	EXPECT_STREQ( "()F", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, DoubleNoArgs )
+TEST( TestNativeFunction, SignatureDoubleNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jdouble );
 	EXPECT_STREQ( "()D", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, ByteNoArgs )
+TEST( TestNativeFunction, SignatureByteNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jbyte );
 	EXPECT_STREQ( "()B", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, CharNoArgs )
+TEST( TestNativeFunction, SignatureCharNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jchar );
 	EXPECT_STREQ( "()C", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, ShortNoArgs )
+TEST( TestNativeFunction, SignatureShortNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jshort );
 	EXPECT_STREQ( "()S", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, IntNoArgs )
+TEST( TestNativeFunction, SignatureIntNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jint );
 	EXPECT_STREQ( "()I", func.signature.c_str() );
 };
 
-TEST( TestNativeFunction, LongNoArgs )
+TEST( TestNativeFunction, SignatureLongNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jlong );
 	EXPECT_STREQ( "()L", func.signature.c_str() );
+};
+
+TEST( TestNativeFunction, SignatureVoidWithArgs )
+{
+	DECLARE_TEST_MEMBER_FUNC( void, jint, jstring, jlong );
+	EXPECT_STREQ( "(ILjava/lang/String;L)V", func.signature.c_str() );
 };
