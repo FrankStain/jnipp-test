@@ -67,7 +67,7 @@ final class NativeTestsRunner
 				}
 
 				test_result.DispatchLog( String.format( "Test is passed : %b.", is_passed ) );
-				test_result.Finish();
+				test_result.Finish( is_passed );
 				m_results_adapter.notifyDataSetChanged();
 			}
 		} );
