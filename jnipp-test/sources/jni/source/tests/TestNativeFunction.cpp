@@ -77,11 +77,11 @@ TEST( TestNativeFunction, SignatureIntNoArgs )
 TEST( TestNativeFunction, SignatureLongNoArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( jlong );
-	EXPECT_STREQ( "()L", func.signature.c_str() );
+	EXPECT_STREQ( "()J", func.signature.c_str() );
 };
 
 TEST( TestNativeFunction, SignatureVoidWithArgs )
 {
 	DECLARE_TEST_MEMBER_FUNC( void, jint, jstring, jlong );
-	EXPECT_STREQ( "(ILjava/lang/String;L)V", func.signature.c_str() );
+	EXPECT_STREQ( "(ILjava/lang/String;J)V", func.signature.c_str() );
 };
