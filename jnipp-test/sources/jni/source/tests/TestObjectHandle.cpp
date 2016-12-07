@@ -21,3 +21,34 @@ TEST( TestObjectHandle, NewObject )
 
 	EXPECT_TRUE( object_handle.IsValid() );
 };
+
+TEST( TestObjectHandle, Ivalidate )
+{
+	jnipp::ObjectHandle object_handle{ jnipp::ObjectHandle::NewObject( { "java/lang/String" } ) };
+
+	EXPECT_TRUE( object_handle.IsValid() );
+
+	object_handle.Invalidate();
+	EXPECT_FALSE( object_handle.IsValid() );
+};
+
+TEST( TestObjectHandle, CopyFromClassHandle )
+{
+	const jnipp::ClassHandle class_handle{ "java/lang/String" };
+
+	EXPECT_TRUE( class_handle.IsValid() );
+
+	jnipp::ObjectHandle object_handle{ class_handle };
+	EXPECT_TRUE( object_handle.IsValid() );
+};
+
+TEST( TestObjectHandle, MoveFromClassHandle )
+{
+	jnipp::ClassHandle class_handle{ "java/lang/String" };
+
+	EXPECT_TRUE( class_handle.IsValid() );
+
+	jnipp::ObjectHandle object_handle{ std::move( class_handle ) };
+	EXPECT_TRUE( object_handle.IsValid() );
+	EXPECT_FALSE( class_handle.IsValid() );
+};
