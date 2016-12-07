@@ -4,3 +4,20 @@
 #include <gtest/gtest.h>
 
 
+TEST( TestObjectHandle, EmptyIsValid )
+{
+	jnipp::ObjectHandle object_handle;
+
+	EXPECT_FALSE( object_handle.IsValid() );
+};
+
+TEST( TestObjectHandle, NewObject )
+{
+	jnipp::ObjectHandle object_handle;
+
+	EXPECT_FALSE( object_handle.IsValid() );
+
+	object_handle = jnipp::ObjectHandle::NewObject( { "java/lang/String" } );
+
+	EXPECT_TRUE( object_handle.IsValid() );
+};
