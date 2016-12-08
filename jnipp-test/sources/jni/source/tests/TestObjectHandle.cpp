@@ -22,7 +22,7 @@ TEST( TestObjectHandle, NewObject )
 	EXPECT_TRUE( object_handle.IsValid() );
 };
 
-TEST( TestObjectHandle, Ivalidate )
+TEST( TestObjectHandle, Invalidate )
 {
 	jnipp::ObjectHandle object_handle{ jnipp::ObjectHandle::NewObject( { "java/lang/String" } ) };
 
@@ -51,4 +51,42 @@ TEST( TestObjectHandle, MoveFromClassHandle )
 	jnipp::ObjectHandle object_handle{ std::move( class_handle ) };
 	EXPECT_TRUE( object_handle.IsValid() );
 	EXPECT_FALSE( class_handle.IsValid() );
+};
+
+TEST( TestObjectHandle, CopyValid )
+{
+	const jnipp::ObjectHandle object_handle1{ jnipp::ObjectHandle::NewObject( { "java/lang/String" } ) };
+
+	EXPECT_TRUE( object_handle1.IsValid() );
+
+	jnipp::ObjectHandle object_handle2{ object_handle1 };
+	EXPECT_TRUE( object_handle2.IsValid() );
+	EXPECT_TRUE( object_handle1.IsValid() );
+};
+
+TEST( TestObjectHandle, MoveValid )
+{
+	jnipp::ObjectHandle object_handle1{ jnipp::ObjectHandle::NewObject( { "java/lang/String" } ) };
+
+	EXPECT_TRUE( object_handle1.IsValid() );
+
+	jnipp::ObjectHandle object_handle2{ std::move( object_handle1 ) };
+	EXPECT_TRUE( object_handle2.IsValid() );
+	EXPECT_FALSE( object_handle1.IsValid() );
+};
+
+TEST( TestObjectHandle, GetClassHandle )
+{
+	jnipp::ObjectHandle object_handle{ jnipp::ObjectHandle::NewObject( { "java/lang/String" } ) };
+
+	EXPECT_TRUE( object_handle.IsValid() );
+	EXPECT_TRUE( object_handle.GetClassHandle().IsValid() );
+};
+
+TEST( TestObjectHandle, GetReference )
+{
+	jnipp::ObjectHandle object_handle{ jnipp::ObjectHandle::NewObject( { "java/lang/String" } ) };
+
+	EXPECT_TRUE( object_handle.IsValid() );
+	EXPECT_NE( nullptr, *object_handle );
 };
