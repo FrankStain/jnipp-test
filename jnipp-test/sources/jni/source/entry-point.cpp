@@ -3,31 +3,22 @@
 #include <main.h>
 #include "NativeTestsRunner.h"
 
-#define _ENTRY_POINT_LOGS
-
-#if( defined( _ENTRY_POINT_LOGS ) )
-	#include <android/log.h>
-	#define LOG_DBG( FORMAT, ... )	__android_log_print( ANDROID_LOG_DEBUG, "AndroidBridge", FORMAT, ##__VA_ARGS__ )
-#else
-	#define LOG_DBG( FORMAT, ... )
-#endif
-
 
 extern "C"
 {
 	JNIEXPORT jint JNICALL JNI_OnLoad( JavaVM* vm, void* reserved )
 	{
-		LOG_DBG( "Attempt to initialize Jni++." );
-		CRET_E( !jnipp::VirtualMachine::Initialize( vm ), -1, "Failed to initialize Jni++ interface." );
-		CRET_E( !NativeTestsRunner::RegisterNatives(), -1, "Failed to register natives for `NativeTestsRunner`." );
+		jnipp::logging::Debug( "Attempt to initialize Jni++." );
+		CRET_E( !jnipp::VirtualMachine::Initialize( vm ), JNI_ERR, "Failed to initialize Jni++ interface." );
+		CRET_E( !NativeTestsRunner::RegisterNatives(), JNI_ERR, "Failed to register natives for `NativeTestsRunner`." );
 
-		LOG_DBG( "Jni++ initialized." );
+		jnipp::logging::Debug( "Jni++ initialized." );
 		return jnipp::VirtualMachine::JNI_VERSION;
 	};
 
 	JNIEXPORT void JNICALL JNI_OnUnload( JavaVM* vm, void* reserved )
-	{																				   
+	{
 		jnipp::VirtualMachine::Finalize();
-		LOG_DBG( "Jni++ finalized." );
+		jnipp::logging::Debug( "Jni++ finalized." );
 	};
 };
