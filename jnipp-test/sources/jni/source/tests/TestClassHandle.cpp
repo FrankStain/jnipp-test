@@ -79,3 +79,23 @@ TEST( TestClassHandle, GetReference )
 	EXPECT_TRUE( class_handle.IsValid() );
 	EXPECT_NE( nullptr, *class_handle );
 };
+
+TEST( TestClassHandle, ValidGetName )
+{
+	jnipp::ClassHandle class_handle{ "java/lang/String" };
+
+	EXPECT_TRUE( class_handle.IsValid() );
+
+	const std::string class_name{ class_handle.GetName() };
+	EXPECT_STREQ( "java/lang/String", class_name.c_str() );
+};
+
+TEST( TestClassHandle, InvalidGetName )
+{
+	jnipp::ClassHandle class_handle;
+
+	EXPECT_FALSE( class_handle.IsValid() );
+
+	const std::string class_name{ class_handle.GetName() };
+	EXPECT_STREQ( "", class_name.c_str() );
+};
