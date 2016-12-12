@@ -84,19 +84,3 @@ TEST( TestFieldHandle, ValidLong )
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
-
-TEST( TestFieldHandle, ReadValidBool )
-{
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<bool>	field{ class_handle, "m_bool_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
-
-	bool field_value;
-	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
-
-	EXPECT_TRUE( field_value );
-};
