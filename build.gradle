@@ -1,3 +1,6 @@
+// Copyright since 2016 : Evgenii Shatunov (github.com/FrankStain/jnipp-test)
+// Apache 2.0 License
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
