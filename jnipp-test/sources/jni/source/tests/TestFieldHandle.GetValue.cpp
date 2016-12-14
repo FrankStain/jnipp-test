@@ -4,15 +4,19 @@
 #include <gtest/gtest.h>
 
 
+#define DECLARE_TEST_ENV( TYPE, NAME )															\
+	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };					\
+																								\
+	jnipp::FieldHandle<TYPE>	field{ class_handle, "m_" NAME "_field" };						\
+	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };	\
+																								\
+	EXPECT_TRUE( field );																		\
+	EXPECT_TRUE( test_object );
+
+
 TEST( TestFieldHandle, GetBool )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<bool>	field{ class_handle, "m_bool_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( bool, "bool" );
 
 	bool field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -22,13 +26,7 @@ TEST( TestFieldHandle, GetBool )
 
 TEST( TestFieldHandle, GetString )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<std::string>	field{ class_handle, "m_string_field" };
-	jnipp::ObjectHandle				test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( std::string, "string" );
 
 	std::string field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -38,13 +36,7 @@ TEST( TestFieldHandle, GetString )
 
 TEST( TestFieldHandle, GetFloat )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<float>	field{ class_handle, "m_float_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( float, "float" );
 
 	float field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -54,13 +46,7 @@ TEST( TestFieldHandle, GetFloat )
 
 TEST( TestFieldHandle, GetDouble )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<double>	field{ class_handle, "m_double_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( double, "double" );
 
 	double field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -70,13 +56,7 @@ TEST( TestFieldHandle, GetDouble )
 
 TEST( TestFieldHandle, GetByte )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int8_t>	field{ class_handle, "m_byte_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( int8_t, "byte" );
 
 	int8_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -86,13 +66,7 @@ TEST( TestFieldHandle, GetByte )
 
 TEST( TestFieldHandle, GetUnsignedByte )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint8_t>	field{ class_handle, "m_short_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( uint8_t, "short" );
 
 	uint8_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -102,13 +76,7 @@ TEST( TestFieldHandle, GetUnsignedByte )
 
 TEST( TestFieldHandle, GetChar16 )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<char16_t>	field{ class_handle, "m_char_field" };
-	jnipp::ObjectHandle				test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( char16_t, "char" );
 
 	char16_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -118,13 +86,7 @@ TEST( TestFieldHandle, GetChar16 )
 
 TEST( TestFieldHandle, GetShort )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int16_t>	field{ class_handle, "m_short_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( int16_t, "short" );
 
 	int16_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -134,13 +96,7 @@ TEST( TestFieldHandle, GetShort )
 
 TEST( TestFieldHandle, GetUnsignedShort )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint16_t>	field{ class_handle, "m_int_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( uint16_t, "int" );
 
 	uint16_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -150,13 +106,7 @@ TEST( TestFieldHandle, GetUnsignedShort )
 
 TEST( TestFieldHandle, GetInt )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int32_t>	field{ class_handle, "m_int_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( int32_t, "int" );
 
 	int32_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -166,13 +116,7 @@ TEST( TestFieldHandle, GetInt )
 
 TEST( TestFieldHandle, GetUnsignedInt )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint32_t>	field{ class_handle, "m_long_field" };
-	jnipp::ObjectHandle				test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( uint32_t, "long" );
 
 	uint32_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -182,13 +126,7 @@ TEST( TestFieldHandle, GetUnsignedInt )
 
 TEST( TestFieldHandle, GetLong )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int64_t>	field{ class_handle, "m_long_field" };
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( int64_t, "long" );
 
 	int64_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -198,13 +136,7 @@ TEST( TestFieldHandle, GetLong )
 
 TEST( TestFieldHandle, GetUnsignedLong )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint64_t>	field{ class_handle, "m_long_field" };
-	jnipp::ObjectHandle				test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };
-
-	EXPECT_TRUE( field );
-	EXPECT_TRUE( test_object );
+	DECLARE_TEST_ENV( uint64_t, "long" );
 
 	uint64_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
