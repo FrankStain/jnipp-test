@@ -3,147 +3,120 @@
 #include <main.h>
 #include <gtest/gtest.h>
 
+#define DECLARE_TEST_ENV( TYPE, NAME )											\
+	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };	\
+																				\
+	jnipp::FieldHandle<TYPE>	field{ class_handle, "m_" NAME "_field" };
+
 
 TEST( TestFieldHandle, ValidBool )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<bool>	field{ class_handle, "m_bool_field" };
+	DECLARE_TEST_ENV( bool, "bool" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidStringUtf8 )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<std::string>	field{ class_handle, "m_string_field" };
+	DECLARE_TEST_ENV( std::string, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidStringUtf16 )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<std::u16string>	field{ class_handle, "m_string_field" };
+	DECLARE_TEST_ENV( std::u16string, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidCharStreamUtf8 )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<const char*>	field{ class_handle, "m_string_field" };
+	DECLARE_TEST_ENV( const char*, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidCharStreamUtf16 )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<const char16_t*>	field{ class_handle, "m_string_field" };
+	DECLARE_TEST_ENV( const char16_t*, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidFloat )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<float>	field{ class_handle, "m_float_field" };
+	DECLARE_TEST_ENV( float, "float" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidDouble )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<double>	field{ class_handle, "m_double_field" };
+	DECLARE_TEST_ENV( double, "double" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidByte )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int8_t>	field{ class_handle, "m_byte_field" };
+	DECLARE_TEST_ENV( int8_t, "byte" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidUnsignedByte )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint8_t>	field{ class_handle, "m_short_field" };
+	DECLARE_TEST_ENV( uint8_t, "short" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidChar16 )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<char16_t>	field{ class_handle, "m_char_field" };
+	DECLARE_TEST_ENV( char16_t, "char" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidShort )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int16_t>	field{ class_handle, "m_short_field" };
+	DECLARE_TEST_ENV( int16_t, "short" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidUnsignedShort )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint16_t>	field{ class_handle, "m_int_field" };
+	DECLARE_TEST_ENV( uint16_t, "int" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidInt )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int32_t>	field{ class_handle, "m_int_field" };
+	DECLARE_TEST_ENV( int32_t, "int" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidUnsignedInt )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint32_t>	field{ class_handle, "m_long_field" };
+	DECLARE_TEST_ENV( uint32_t, "long" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidLong )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<int64_t>	field{ class_handle, "m_long_field" };
+	DECLARE_TEST_ENV( int64_t, "long" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
 TEST( TestFieldHandle, ValidUnsignedLong )
 {
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };
-
-	jnipp::FieldHandle<uint64_t>	field{ class_handle, "m_long_field" };
+	DECLARE_TEST_ENV( uint64_t, "long" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
