@@ -3,49 +3,59 @@ package com.pfs.jnipptest;
 
 import android.util.Log;
 
-public class TestFunctionContainer
+class TestFunctionContainer
 {
 	void VoidNoArguments()
 	{
-		Log.i( "Jni++", "TestFunctionContainer::VoidNoArguments() checkout." );
+		m_is_called = true;
+		Log.i( "Jni++", "TestFunctionContainer::VoidNoArguments() checkpoint." );
 	}
 
 	void VoidOneArgument( String arg )
 	{
-		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s' ) checkout.", arg ) );
+		m_is_called = true;
+		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s' ) checkpoint.", arg ) );
 	}
 
 	void VoidTwoArguments( String arg1, String arg2 )
 	{
-		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s' ) checkout.", arg1, arg2 ) );
+		m_is_called = true;
+		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s' ) checkpoint.", arg1, arg2 ) );
 	}
 
 	void VoidThreeArguments( String arg1, String arg2, String arg3 )
 	{
-		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s', '%s' ) checkout.", arg1, arg2, arg3 ) );
+		m_is_called = true;
+		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s', '%s' ) checkpoint.", arg1, arg2, arg3 ) );
 	}
 
 	String StringNoArguments()
 	{
-		Log.i( "Jni++", "TestFunctionContainer::VoidNoArguments() checkout." );
+		m_is_called = true;
+		Log.i( "Jni++", "TestFunctionContainer::VoidNoArguments() checkpoint." );
 		return "Jni++";
 	}
 
 	String StringOneArgument( String arg )
 	{
-		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s' ) checkout.", arg ) );
+		m_is_called = true;
+		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s' ) checkpoint.", arg ) );
 		return arg;
 	}
 
 	String StringTwoArguments( String arg1, String arg2 )
 	{
-		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s' ) checkout.", arg1, arg2 ) );
+		m_is_called = true;
+		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s' ) checkpoint.", arg1, arg2 ) );
 		return String.format( "%s %s", arg1, arg2 );
 	}
 
 	String StringThreeArguments( String arg1, String arg2, String arg3 )
 	{
-		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s', '%s' ) checkout.", arg1, arg2, arg3 ) );
+		m_is_called = true;
+		Log.i( "Jni++", String.format( "TestFunctionContainer::VoidOneArgument( '%s', '%s', '%s' ) checkpoint.", arg1, arg2, arg3 ) );
 		return String.format( "%s %s %s", arg1, arg2, arg3 );
 	}
+
+	private boolean m_is_called = false;
 }
