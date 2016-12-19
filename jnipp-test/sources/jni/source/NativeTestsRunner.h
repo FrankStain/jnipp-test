@@ -22,7 +22,7 @@ private:
 
 	inline const std::string GetTestName( const char* case_name, const char* test_name ) const
 	{
-		return std::string{ case_name } + ":" + test_name;
+		return std::string{ case_name } + " : " + test_name;
 	};
 
 private:
