@@ -5,10 +5,10 @@
 
 
 #define DECLARE_TEST_ENV( NAME, RET, ... )														\
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestStaticFunctionContainer" };			\
+	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestStaticFunctionContainer" };			\
 																								\
-	jnipp::StaticFunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };					\
-	jnipp::StaticFieldHandle<bool>					call_check{ class_handle, "is_called" };	\
+	Jni::StaticFunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };					\
+	Jni::StaticFieldHandle<bool>					call_check{ class_handle, "is_called" };	\
 																								\
 	EXPECT_TRUE( func );																		\
 	EXPECT_TRUE( call_check );																	\

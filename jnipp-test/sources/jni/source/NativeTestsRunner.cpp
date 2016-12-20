@@ -8,7 +8,7 @@
 
 const bool NativeTestsRunner::RegisterNatives()
 {
-	return jnipp::VirtualMachine::RegisterClassNatives(
+	return Jni::VirtualMachine::RegisterClassNatives(
 		{
 			"com/pfs/jnipptest/NativeTestsRunner",
 			{
@@ -20,7 +20,7 @@ const bool NativeTestsRunner::RegisterNatives()
 
 void NativeTestsRunner::StartTests( JNIEnv* local_env, jobject local_object_ref )
 {
-	jnipp::logging::Verbose( "Launching Jni++ tests." );
+	Jni::Logging::Verbose( "Launching Jni++ tests." );
 	std::shared_ptr<NativeTestsRunner> runner{ std::make_shared<NativeTestsRunner>() };
 
 	runner->m_object		= local_object_ref;
@@ -32,7 +32,7 @@ void NativeTestsRunner::StartTests( JNIEnv* local_env, jobject local_object_ref 
 		}
 	};
 
-	jnipp::logging::Verbose( "Jni++ tests launched." );
+	Jni::Logging::Verbose( "Jni++ tests launched." );
 };
 
 void NativeTestsRunner::ThreadMain()
@@ -43,7 +43,7 @@ void NativeTestsRunner::ThreadMain()
 
 	testing::InitGoogleTest( &argc, const_cast<char**>( argv ) );
 	testing::UnitTest::GetInstance()->listeners().Append( new TestsReporter( this ) );
-	jnipp::logging::Info( "Tests result code - %d", RUN_ALL_TESTS() );
+	Jni::Logging::Info( "Tests result code - %d", RUN_ALL_TESTS() );
 };
 
 void NativeTestsRunner::OnTestStarted( const char* case_name, const char* test_name )

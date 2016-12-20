@@ -5,11 +5,11 @@
 
 
 #define DECLARE_TEST_ENV( NAME, RET, ... )																		\
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };								\
+	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };								\
 																												\
-	jnipp::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };										\
-	jnipp::FieldHandle<bool>					call_check{ class_handle, "m_is_called" };						\
-	jnipp::ObjectHandle							test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };	\
+	Jni::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };										\
+	Jni::FieldHandle<bool>					call_check{ class_handle, "m_is_called" };						\
+	Jni::ObjectHandle							test_object{ Jni::ObjectHandle::NewObject( class_handle ) };	\
 																												\
 	EXPECT_TRUE( func );																						\
 	EXPECT_TRUE( call_check );																					\

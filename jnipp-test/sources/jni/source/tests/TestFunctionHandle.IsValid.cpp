@@ -5,9 +5,9 @@
 
 
 #define DECLARE_TEST_ENV( NAME, RET, ... )											\
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };	\
+	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };	\
 																					\
-	jnipp::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };
+	Jni::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };
 
 
 TEST( TestFunctionHandle, ValidVoidNoArguments )

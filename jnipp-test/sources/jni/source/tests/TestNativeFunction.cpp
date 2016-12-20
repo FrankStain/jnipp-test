@@ -12,7 +12,7 @@ using JniStaticFunction = TReturnType (*)( JNIEnv*, jclass, TArgumentTypes... );
 
 
 #define DECLARE_TEST_MEMBER_FUNC( FUNC_RESULT, ... )									\
-jnipp::NativeFunction func{																\
+Jni::NativeFunction func{																\
 	"test_func",																		\
 	JniMemberFunction<FUNC_RESULT, ##__VA_ARGS__>{										\
 		[]( JNIEnv*, jobject, ##__VA_ARGS__ ) -> FUNC_RESULT { return FUNC_RESULT(); }	\

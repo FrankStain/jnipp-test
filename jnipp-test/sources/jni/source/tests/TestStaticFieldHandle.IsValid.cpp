@@ -4,9 +4,9 @@
 #include <gtest/gtest.h>
 
 #define DECLARE_TEST_ENV( TYPE, NAME )												\
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestStaticFieldStorage" };	\
+	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestStaticFieldStorage" };	\
 																					\
-	jnipp::StaticFieldHandle<TYPE>	field{ class_handle, NAME "_field" };
+	Jni::StaticFieldHandle<TYPE>	field{ class_handle, NAME "_field" };
 
 
 TEST( TestStaticFieldStorage, ValidBool )

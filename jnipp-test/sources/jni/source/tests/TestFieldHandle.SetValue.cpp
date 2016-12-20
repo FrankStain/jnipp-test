@@ -5,10 +5,10 @@
 
 
 #define DECLARE_TEST_ENV( TYPE, NAME )															\
-	jnipp::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };					\
+	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };					\
 																								\
-	jnipp::FieldHandle<TYPE>	field{ class_handle, "m_" NAME "_field" };						\
-	jnipp::ObjectHandle			test_object{ jnipp::ObjectHandle::NewObject( class_handle ) };	\
+	Jni::FieldHandle<TYPE>	field{ class_handle, "m_" NAME "_field" };						\
+	Jni::ObjectHandle			test_object{ Jni::ObjectHandle::NewObject( class_handle ) };	\
 																								\
 	EXPECT_TRUE( field );																		\
 	EXPECT_TRUE( test_object );

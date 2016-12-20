@@ -5,12 +5,12 @@
 
 
 #define DECLARE_TEST_ENV( NAME, RET, ... )																		\
-	jnipp::ClassHandle derived_class{ "com/pfs/jnipptest/TestFunctionDerivedContainer" };						\
-	jnipp::ClassHandle basic_class{ derived_class.GetParentClassHandle() };										\
+	Jni::ClassHandle derived_class{ "com/pfs/jnipptest/TestFunctionDerivedContainer" };						\
+	Jni::ClassHandle basic_class{ derived_class.GetParentClassHandle() };										\
 																												\
-	jnipp::FunctionHandle<RET, ##__VA_ARGS__>	func{ basic_class, NAME };										\
-	jnipp::FieldHandle<bool>					call_check{ basic_class, "m_is_called" };						\
-	jnipp::ObjectHandle							test_object{ jnipp::ObjectHandle::NewObject( derived_class ) };	\
+	Jni::FunctionHandle<RET, ##__VA_ARGS__>	func{ basic_class, NAME };										\
+	Jni::FieldHandle<bool>					call_check{ basic_class, "m_is_called" };						\
+	Jni::ObjectHandle							test_object{ Jni::ObjectHandle::NewObject( derived_class ) };	\
 																												\
 	EXPECT_TRUE( func );																						\
 	EXPECT_TRUE( call_check );																					\
@@ -26,11 +26,11 @@
 
 //TEST( TestFunctionHandle, CheckFunctionIds )
 //{
-//	jnipp::ClassHandle base_class{ "com/pfs/jnipptest/TestFunctionContainer" };
-//	jnipp::ClassHandle derived_class{ "com/pfs/jnipptest/TestFunctionDerivedContainer" };
+//	Jni::ClassHandle base_class{ "com/pfs/jnipptest/TestFunctionContainer" };
+//	Jni::ClassHandle derived_class{ "com/pfs/jnipptest/TestFunctionDerivedContainer" };
 //
-//	jnipp::FunctionHandle<void>	derived_class_func{ derived_class, "VoidNoArguments" };
-//	jnipp::FunctionHandle<void>	base_class_func{ base_class, "VoidNoArguments" };
+//	Jni::FunctionHandle<void>	derived_class_func{ derived_class, "VoidNoArguments" };
+//	Jni::FunctionHandle<void>	base_class_func{ base_class, "VoidNoArguments" };
 //
 //	EXPECT_EQ( *base_class_func, *derived_class_func );
 //};

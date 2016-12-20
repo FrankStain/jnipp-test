@@ -6,15 +6,15 @@
 
 TEST( TestVirtualMachine, IsValid )
 {
-	EXPECT_EQ( true, jnipp::VirtualMachine::IsValid() );
+	EXPECT_EQ( true, Jni::VirtualMachine::IsValid() );
 };
 
 TEST( TestVirtualMachine, GetJvm )
 {
-	EXPECT_NE( nullptr, jnipp::VirtualMachine::GetJvm() );
+	EXPECT_NE( nullptr, Jni::VirtualMachine::GetJvm() );
 };
 
 TEST( TestVirtualMachine, GetLocalEnvironment )
 {
-	EXPECT_NE( nullptr, jnipp::VirtualMachine::GetLocalEnvironment() );
+	EXPECT_NE( nullptr, Jni::VirtualMachine::GetLocalEnvironment() );
 };

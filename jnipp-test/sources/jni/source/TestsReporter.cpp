@@ -11,34 +11,34 @@ TestsReporter::TestsReporter( NativeTestsRunner* runner )
 
 void TestsReporter::OnTestProgramStart( const testing::UnitTest& unit_test )
 {
-	jnipp::logging::Verbose( "Tests started." );
+	Jni::Logging::Verbose( "Tests started." );
 };
 
 void TestsReporter::OnTestIterationStart( const testing::UnitTest& unit_test, int iteration )
 {
 	JNI_RETURN_IF( iteration < 2 );
-	jnipp::logging::Verbose( "Tests iteration : %d.", iteration );
+	Jni::Logging::Verbose( "Tests iteration : %d.", iteration );
 };
 
 void TestsReporter::OnEnvironmentsSetUpStart( const testing::UnitTest& unit_test )
 {
-	jnipp::logging::Verbose( "Global test environment set-up started." );
+	Jni::Logging::Verbose( "Global test environment set-up started." );
 };
 
 void TestsReporter::OnEnvironmentsSetUpEnd( const testing::UnitTest& unit_test )
 {
-	jnipp::logging::Verbose( "Global test environment set-up finished." );
+	Jni::Logging::Verbose( "Global test environment set-up finished." );
 };
 
 void TestsReporter::OnTestCaseStart( const testing::TestCase& test_case )
 {
 	const char* test_case_param = ( test_case.type_param() != nullptr )? test_case.type_param() : "n/a";
-	jnipp::logging::Verbose( "[T] %d test(s) from %s with argument `%s`.", test_case.test_to_run_count(), test_case.name(), test_case_param );
+	Jni::Logging::Verbose( "[T] %d test(s) from %s with argument `%s`.", test_case.test_to_run_count(), test_case.name(), test_case_param );
 };
 
 void TestsReporter::OnTestStart( const testing::TestInfo& test_info )
 {
-	jnipp::logging::Verbose( "[ ] %s:%s", test_info.test_case_name(), test_info.name() );
+	Jni::Logging::Verbose( "[ ] %s:%s", test_info.test_case_name(), test_info.name() );
 	m_runner->OnTestStarted( test_info.test_case_name(), test_info.name() );
 };
 
@@ -48,7 +48,7 @@ void TestsReporter::OnTestPartResult( const testing::TestPartResult& test_part_r
 		
 	JNI_RETURN_IF( test_part_result.type() == testing::TestPartResult::kSuccess );
 	const char* file_location = ( test_part_result.file_name() )? test_part_result.file_name() : "unknown file";
-	jnipp::logging::Warning(
+	Jni::Logging::Warning(
 		"%s(%d): `%s` - %s",
 		file_location, test_part_result.line_number(),
 		RESULT_TYPE_NAMES[ test_part_result.type() ],
@@ -60,7 +60,7 @@ void TestsReporter::OnTestEnd( const testing::TestInfo& test_info )
 {
 	if( test_info.result()->Passed() )
 	{
-		jnipp::logging::Info( "[+] %s:%s", test_info.test_case_name(), test_info.name() );
+		Jni::Logging::Info( "[+] %s:%s", test_info.test_case_name(), test_info.name() );
 	}
 	else
 	{
@@ -69,10 +69,10 @@ void TestsReporter::OnTestEnd( const testing::TestInfo& test_info )
 			const char* type_param	= ( test_info.type_param() != nullptr )? test_info.type_param() : "none";
 			const char* value_param	= ( test_info.value_param() != nullptr )? test_info.value_param() : "none";
 				
-			jnipp::logging::Error( "Type argument == `%s`; Value == `%s`", type_param, value_param );
+			Jni::Logging::Error( "Type argument == `%s`; Value == `%s`", type_param, value_param );
 		};
 
-		jnipp::logging::Error( "[-] %s:%s", test_info.test_case_name(), test_info.name() );
+		Jni::Logging::Error( "[-] %s:%s", test_info.test_case_name(), test_info.name() );
 	};
 
 	m_runner->OnTestFinished( test_info.test_case_name(), test_info.name(), test_info.result()->Passed() );
@@ -80,22 +80,22 @@ void TestsReporter::OnTestEnd( const testing::TestInfo& test_info )
 
 void TestsReporter::OnTestCaseEnd( const testing::TestCase& test_case )
 {
-	jnipp::logging::Verbose( "[T] %s case finished; %d good; %d bad.", test_case.name(), test_case.successful_test_count(), test_case.failed_test_count() );
+	Jni::Logging::Verbose( "[T] %s case finished; %d good; %d bad.", test_case.name(), test_case.successful_test_count(), test_case.failed_test_count() );
 };
 
 void TestsReporter::OnEnvironmentsTearDownStart( const testing::UnitTest& unit_test )
 {
-	jnipp::logging::Verbose( "Global test environment tear-down started." );
+	Jni::Logging::Verbose( "Global test environment tear-down started." );
 };
 
 void TestsReporter::OnEnvironmentsTearDownEnd( const testing::UnitTest& unit_test )
 {
-	jnipp::logging::Verbose( "Global test environment tear-down finished." );
+	Jni::Logging::Verbose( "Global test environment tear-down finished." );
 };
 
 void TestsReporter::OnTestIterationEnd( const testing::UnitTest& unit_test, int iteration )
 {
-	jnipp::logging::Verbose( 
+	Jni::Logging::Verbose( 
 		"%d from %d ran; %d succeeded.",
 		unit_test.test_to_run_count(),
 		unit_test.test_case_to_run_count(),
@@ -105,5 +105,5 @@ void TestsReporter::OnTestIterationEnd( const testing::UnitTest& unit_test, int 
 
 void TestsReporter::OnTestProgramEnd( const testing::UnitTest& unit_test )
 {
-	jnipp::logging::Verbose( "Tests finished." );
+	Jni::Logging::Verbose( "Tests finished." );
 };
