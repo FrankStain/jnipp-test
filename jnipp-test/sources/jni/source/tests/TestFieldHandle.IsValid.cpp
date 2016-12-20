@@ -3,9 +3,9 @@
 #include <main.h>
 #include <gtest/gtest.h>
 
-#define DECLARE_TEST_ENV( TYPE, NAME )											\
+#define DECLARE_TEST_ENV( TYPE, NAME )										\
 	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };	\
-																				\
+																			\
 	Jni::FieldHandle<TYPE>	field{ class_handle, "m_" NAME "_field" };
 
 
