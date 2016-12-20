@@ -4,15 +4,15 @@
 #include <gtest/gtest.h>
 
 
-#define DECLARE_TEST_ENV( NAME, RET, ... )																		\
+#define DECLARE_TEST_ENV( NAME, RET, ... )																	\
 	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };								\
-																												\
+																											\
 	Jni::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };										\
 	Jni::FieldHandle<bool>					call_check{ class_handle, "m_is_called" };						\
-	Jni::ObjectHandle							test_object{ Jni::ObjectHandle::NewObject( class_handle ) };	\
-																												\
-	EXPECT_TRUE( func );																						\
-	EXPECT_TRUE( call_check );																					\
+	Jni::ObjectHandle						test_object{ Jni::ObjectHandle::NewObject( class_handle ) };	\
+																											\
+	EXPECT_TRUE( func );																					\
+	EXPECT_TRUE( call_check );																				\
 	EXPECT_TRUE( test_object )
 
 #define EXAMINE_CALL_FLAG( ... )										\

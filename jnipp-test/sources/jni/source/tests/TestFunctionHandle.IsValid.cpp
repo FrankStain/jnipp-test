@@ -4,9 +4,9 @@
 #include <gtest/gtest.h>
 
 
-#define DECLARE_TEST_ENV( NAME, RET, ... )											\
+#define DECLARE_TEST_ENV( NAME, RET, ... )										\
 	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };	\
-																					\
+																				\
 	Jni::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };
 
 
