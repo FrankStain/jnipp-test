@@ -9,7 +9,7 @@
 																					\
 	Jni::StaticFieldHandle<TYPE>	field{ class_handle, NAME "_field" };			\
 																					\
-	EXPECT_TRUE( field );
+	EXPECT_TRUE( field )
 
 
 TEST( TestStaticFieldHandle, GetBool )
