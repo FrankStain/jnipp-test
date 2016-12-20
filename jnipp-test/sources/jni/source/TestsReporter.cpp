@@ -6,7 +6,7 @@
 TestsReporter::TestsReporter( NativeTestsRunner* runner )
 	: m_runner( runner )
 {
-	Expects( runner != nullptr )
+	JNI_EXPECTS( runner != nullptr )
 };
 
 void TestsReporter::OnTestProgramStart( const testing::UnitTest& unit_test )
@@ -16,7 +16,7 @@ void TestsReporter::OnTestProgramStart( const testing::UnitTest& unit_test )
 
 void TestsReporter::OnTestIterationStart( const testing::UnitTest& unit_test, int iteration )
 {
-	CRET( iteration < 2 );
+	JNI_RETURN_IF( iteration < 2 );
 	jnipp::logging::Verbose( "Tests iteration : %d.", iteration );
 };
 
@@ -46,7 +46,7 @@ void TestsReporter::OnTestPartResult( const testing::TestPartResult& test_part_r
 {
 	static const char* RESULT_TYPE_NAMES[] = { "success", "test failed", "case failed" };
 		
-	CRET( test_part_result.type() == testing::TestPartResult::kSuccess );
+	JNI_RETURN_IF( test_part_result.type() == testing::TestPartResult::kSuccess );
 	const char* file_location = ( test_part_result.file_name() )? test_part_result.file_name() : "unknown file";
 	jnipp::logging::Warning(
 		"%s(%d): `%s` - %s",
