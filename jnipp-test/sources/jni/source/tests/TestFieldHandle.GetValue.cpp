@@ -3,20 +3,12 @@
 #include <main.h>
 #include <gtest/gtest.h>
 
-
-#define DECLARE_TEST_ENV( TYPE, NAME )														\
-	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFieldStorage" };					\
-																							\
-	Jni::FieldHandle<TYPE>	field{ class_handle, "m_" NAME "_field" };						\
-	Jni::ObjectHandle		test_object{ Jni::ObjectHandle::NewObject( class_handle ) };	\
-																							\
-	EXPECT_TRUE( field );																	\
-	EXPECT_TRUE( test_object );
+#include "TestingEnvironment.h"
 
 
 TEST( TestFieldHandle, GetBool )
 {
-	DECLARE_TEST_ENV( bool, "bool" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( bool, "bool" );
 
 	bool field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -26,7 +18,7 @@ TEST( TestFieldHandle, GetBool )
 
 TEST( TestFieldHandle, GetString )
 {
-	DECLARE_TEST_ENV( std::string, "string" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( std::string, "string" );
 
 	std::string field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -36,7 +28,7 @@ TEST( TestFieldHandle, GetString )
 
 TEST( TestFieldHandle, GetFloat )
 {
-	DECLARE_TEST_ENV( float, "float" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( float, "float" );
 
 	float field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -46,7 +38,7 @@ TEST( TestFieldHandle, GetFloat )
 
 TEST( TestFieldHandle, GetDouble )
 {
-	DECLARE_TEST_ENV( double, "double" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( double, "double" );
 
 	double field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -56,7 +48,7 @@ TEST( TestFieldHandle, GetDouble )
 
 TEST( TestFieldHandle, GetByte )
 {
-	DECLARE_TEST_ENV( int8_t, "byte" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( int8_t, "byte" );
 
 	int8_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -66,7 +58,7 @@ TEST( TestFieldHandle, GetByte )
 
 TEST( TestFieldHandle, GetUnsignedByte )
 {
-	DECLARE_TEST_ENV( uint8_t, "short" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( uint8_t, "short" );
 
 	uint8_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -76,7 +68,7 @@ TEST( TestFieldHandle, GetUnsignedByte )
 
 TEST( TestFieldHandle, GetChar16 )
 {
-	DECLARE_TEST_ENV( char16_t, "char" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( char16_t, "char" );
 
 	char16_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -86,7 +78,7 @@ TEST( TestFieldHandle, GetChar16 )
 
 TEST( TestFieldHandle, GetShort )
 {
-	DECLARE_TEST_ENV( int16_t, "short" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( int16_t, "short" );
 
 	int16_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -96,7 +88,7 @@ TEST( TestFieldHandle, GetShort )
 
 TEST( TestFieldHandle, GetUnsignedShort )
 {
-	DECLARE_TEST_ENV( uint16_t, "int" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( uint16_t, "int" );
 
 	uint16_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -106,7 +98,7 @@ TEST( TestFieldHandle, GetUnsignedShort )
 
 TEST( TestFieldHandle, GetInt )
 {
-	DECLARE_TEST_ENV( int32_t, "int" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( int32_t, "int" );
 
 	int32_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -116,7 +108,7 @@ TEST( TestFieldHandle, GetInt )
 
 TEST( TestFieldHandle, GetUnsignedInt )
 {
-	DECLARE_TEST_ENV( uint32_t, "long" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( uint32_t, "long" );
 
 	uint32_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -126,7 +118,7 @@ TEST( TestFieldHandle, GetUnsignedInt )
 
 TEST( TestFieldHandle, GetLong )
 {
-	DECLARE_TEST_ENV( int64_t, "long" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( int64_t, "long" );
 
 	int64_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );
@@ -136,7 +128,7 @@ TEST( TestFieldHandle, GetLong )
 
 TEST( TestFieldHandle, GetUnsignedLong )
 {
-	DECLARE_TEST_ENV( uint64_t, "long" );
+	DECLARE_MEMBER_FIELD_TEST_ENV( uint64_t, "long" );
 
 	uint64_t field_value;
 	EXPECT_TRUE( field.GetValue( test_object, field_value ) );

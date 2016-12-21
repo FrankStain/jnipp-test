@@ -6,21 +6,21 @@
 
 TEST( TestClassHandle, EmptyIsValid )
 {
-	Jni::ClassHandle class_handle;
+	Jni::Class class_handle;
 
 	EXPECT_FALSE( class_handle.IsValid() );
 };
 
 TEST( TestClassHandle, ConstructedIsValid )
 {
-	Jni::ClassHandle class_handle{ "java/lang/String" };
+	Jni::Class class_handle{ "java/lang/String" };
 
 	EXPECT_TRUE( class_handle.IsValid() );
 };
 
 TEST( TestClassHandle, Invalidate )
 {
-	Jni::ClassHandle class_handle{ "java/lang/String" };
+	Jni::Class class_handle{ "java/lang/String" };
 
 	EXPECT_TRUE( class_handle.IsValid() );
 	
@@ -30,7 +30,7 @@ TEST( TestClassHandle, Invalidate )
 
 TEST( TestClassHandle, AssignString )
 {
-	Jni::ClassHandle class_handle;
+	Jni::Class class_handle;
 
 	EXPECT_FALSE( class_handle.IsValid() );
 
@@ -40,8 +40,8 @@ TEST( TestClassHandle, AssignString )
 
 TEST( TestClassHandle, CopyValid )
 {
-	Jni::ClassHandle class_handle1;
-	const Jni::ClassHandle class_handle2{ "java/lang/String" };
+	Jni::Class class_handle1;
+	const Jni::Class class_handle2{ "java/lang/String" };
 
 	EXPECT_FALSE( class_handle1.IsValid() );
 	EXPECT_TRUE( class_handle2.IsValid() );
@@ -50,15 +50,15 @@ TEST( TestClassHandle, CopyValid )
 	EXPECT_TRUE( class_handle1.IsValid() );
 	EXPECT_TRUE( class_handle2.IsValid() );
 
-	const Jni::ClassHandle class_handle3{ class_handle2 };
+	const Jni::Class class_handle3{ class_handle2 };
 	EXPECT_TRUE( class_handle3.IsValid() );
 	EXPECT_TRUE( class_handle2.IsValid() );
 };
 
 TEST( TestClassHandle, MoveValid )
 {
-	Jni::ClassHandle class_handle1;
-	Jni::ClassHandle class_handle2{ "java/lang/String" };
+	Jni::Class class_handle1;
+	Jni::Class class_handle2{ "java/lang/String" };
 
 	EXPECT_FALSE( class_handle1.IsValid() );
 	EXPECT_TRUE( class_handle2.IsValid() );
@@ -67,14 +67,14 @@ TEST( TestClassHandle, MoveValid )
 	EXPECT_TRUE( class_handle1.IsValid() );
 	EXPECT_FALSE( class_handle2.IsValid() );
 
-	Jni::ClassHandle class_handle3{ std::move( class_handle1 ) };
+	Jni::Class class_handle3{ std::move( class_handle1 ) };
 	EXPECT_TRUE( class_handle3.IsValid() );
 	EXPECT_FALSE( class_handle1.IsValid() );
 };
 
 TEST( TestClassHandle, GetReference )
 {
-	Jni::ClassHandle class_handle{ "java/lang/String" };
+	Jni::Class class_handle{ "java/lang/String" };
 
 	EXPECT_TRUE( class_handle.IsValid() );
 	EXPECT_NE( nullptr, *class_handle );
@@ -82,7 +82,7 @@ TEST( TestClassHandle, GetReference )
 
 TEST( TestClassHandle, ValidGetName )
 {
-	Jni::ClassHandle class_handle{ "java/lang/String" };
+	Jni::Class class_handle{ "java/lang/String" };
 
 	EXPECT_TRUE( class_handle.IsValid() );
 
@@ -92,7 +92,7 @@ TEST( TestClassHandle, ValidGetName )
 
 TEST( TestClassHandle, InvalidGetName )
 {
-	Jni::ClassHandle class_handle;
+	Jni::Class class_handle;
 
 	EXPECT_FALSE( class_handle.IsValid() );
 

@@ -3,20 +3,12 @@
 #include <main.h>
 #include <gtest/gtest.h>
 
-
-#define DECLARE_TEST_ENV( TYPE, NAME )												\
-	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestStaticFieldStorage" };	\
-																					\
-	Jni::StaticFieldHandle<TYPE>	field{ class_handle, NAME "_field" };			\
-	EXPECT_TRUE( field );															\
-																					\
-	Jni::StaticFunctionHandle<void> reset_func{ class_handle, "Reset" };			\
-	reset_func.Call()
+#include "TestingEnvironment.h"
 
 
 TEST( TestStaticFieldHandle, GetBool )
 {
-	DECLARE_TEST_ENV( bool, "bool" );
+	DECLARE_STATIC_FIELD_TEST_ENV( bool, "bool" );
 
 	bool field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -26,7 +18,7 @@ TEST( TestStaticFieldHandle, GetBool )
 
 TEST( TestStaticFieldHandle, GetString )
 {
-	DECLARE_TEST_ENV( std::string, "string" );
+	DECLARE_STATIC_FIELD_TEST_ENV( std::string, "string" );
 
 	std::string field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -36,7 +28,7 @@ TEST( TestStaticFieldHandle, GetString )
 
 TEST( TestStaticFieldHandle, GetFloat )
 {
-	DECLARE_TEST_ENV( float, "float" );
+	DECLARE_STATIC_FIELD_TEST_ENV( float, "float" );
 
 	float field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -46,7 +38,7 @@ TEST( TestStaticFieldHandle, GetFloat )
 
 TEST( TestStaticFieldHandle, GetDouble )
 {
-	DECLARE_TEST_ENV( double, "double" );
+	DECLARE_STATIC_FIELD_TEST_ENV( double, "double" );
 
 	double field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -56,7 +48,7 @@ TEST( TestStaticFieldHandle, GetDouble )
 
 TEST( TestStaticFieldHandle, GetByte )
 {
-	DECLARE_TEST_ENV( int8_t, "byte" );
+	DECLARE_STATIC_FIELD_TEST_ENV( int8_t, "byte" );
 
 	int8_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -66,7 +58,7 @@ TEST( TestStaticFieldHandle, GetByte )
 
 TEST( TestStaticFieldHandle, GetUnsignedByte )
 {
-	DECLARE_TEST_ENV( uint8_t, "short" );
+	DECLARE_STATIC_FIELD_TEST_ENV( uint8_t, "short" );
 
 	uint8_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -76,7 +68,7 @@ TEST( TestStaticFieldHandle, GetUnsignedByte )
 
 TEST( TestStaticFieldHandle, GetChar16 )
 {
-	DECLARE_TEST_ENV( char16_t, "char" );
+	DECLARE_STATIC_FIELD_TEST_ENV( char16_t, "char" );
 
 	char16_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -86,7 +78,7 @@ TEST( TestStaticFieldHandle, GetChar16 )
 
 TEST( TestStaticFieldHandle, GetShort )
 {
-	DECLARE_TEST_ENV( int16_t, "short" );
+	DECLARE_STATIC_FIELD_TEST_ENV( int16_t, "short" );
 
 	int16_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -96,7 +88,7 @@ TEST( TestStaticFieldHandle, GetShort )
 
 TEST( TestStaticFieldHandle, GetUnsignedShort )
 {
-	DECLARE_TEST_ENV( uint16_t, "int" );
+	DECLARE_STATIC_FIELD_TEST_ENV( uint16_t, "int" );
 
 	uint16_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -106,7 +98,7 @@ TEST( TestStaticFieldHandle, GetUnsignedShort )
 
 TEST( TestStaticFieldHandle, GetInt )
 {
-	DECLARE_TEST_ENV( int32_t, "int" );
+	DECLARE_STATIC_FIELD_TEST_ENV( int32_t, "int" );
 
 	int32_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -116,7 +108,7 @@ TEST( TestStaticFieldHandle, GetInt )
 
 TEST( TestStaticFieldHandle, GetUnsignedInt )
 {
-	DECLARE_TEST_ENV( uint32_t, "long" );
+	DECLARE_STATIC_FIELD_TEST_ENV( uint32_t, "long" );
 
 	uint32_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -126,7 +118,7 @@ TEST( TestStaticFieldHandle, GetUnsignedInt )
 
 TEST( TestStaticFieldHandle, GetLong )
 {
-	DECLARE_TEST_ENV( int64_t, "long" );
+	DECLARE_STATIC_FIELD_TEST_ENV( int64_t, "long" );
 
 	int64_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );
@@ -136,7 +128,7 @@ TEST( TestStaticFieldHandle, GetLong )
 
 TEST( TestStaticFieldHandle, GetUnsignedLong )
 {
-	DECLARE_TEST_ENV( uint64_t, "long" );
+	DECLARE_STATIC_FIELD_TEST_ENV( uint64_t, "long" );
 
 	uint64_t field_value;
 	EXPECT_TRUE( field.GetValue( field_value ) );

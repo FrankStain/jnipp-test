@@ -28,10 +28,10 @@ private:
 private:
 	std::thread			m_thread;
 
-	Jni::ObjectHandle	m_object;
-	Jni::ClassHandle	m_object_class	= { "com/pfs/jnipptest/NativeTestsRunner" };
+	Jni::Object	m_object;
+	Jni::Class	m_object_class	= { "com/pfs/jnipptest/NativeTestsRunner" };
 
-	Jni::FunctionHandle<void, std::string>				m_on_test_started	= { m_object_class, "OnTestStarted" };
-	Jni::FunctionHandle<void, std::string, std::string>	m_on_test_message	= { m_object_class, "OnTestMessage" };
-	Jni::FunctionHandle<void, std::string, bool>			m_on_test_finished	= { m_object_class, "OnTestFinished" };
+	Jni::MemberFunction<void, std::string>				m_on_test_started	= { m_object_class, "OnTestStarted" };
+	Jni::MemberFunction<void, std::string, std::string>	m_on_test_message	= { m_object_class, "OnTestMessage" };
+	Jni::MemberFunction<void, std::string, bool>		m_on_test_finished	= { m_object_class, "OnTestFinished" };
 };

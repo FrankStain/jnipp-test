@@ -3,16 +3,12 @@
 #include <main.h>
 #include <gtest/gtest.h>
 
-
-#define DECLARE_TEST_ENV( NAME, RET, ... )										\
-	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestFunctionContainer" };	\
-																				\
-	Jni::FunctionHandle<RET, ##__VA_ARGS__>	func{ class_handle, NAME };
+#include "TestingEnvironment.h"
 
 
 TEST( TestFunctionHandle, ValidVoidNoArguments )
 {
-	DECLARE_TEST_ENV( "VoidNoArguments", void );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidNoArguments", void );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -20,7 +16,7 @@ TEST( TestFunctionHandle, ValidVoidNoArguments )
 
 TEST( TestFunctionHandle, ValidVoidOneArgument )
 {
-	DECLARE_TEST_ENV( "VoidOneArgument", void, std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidOneArgument", void, std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -28,7 +24,7 @@ TEST( TestFunctionHandle, ValidVoidOneArgument )
 
 TEST( TestFunctionHandle, ValidVoidTwoArguments )
 {
-	DECLARE_TEST_ENV( "VoidTwoArguments", void, std::string, std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidTwoArguments", void, std::string, std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -36,7 +32,7 @@ TEST( TestFunctionHandle, ValidVoidTwoArguments )
 
 TEST( TestFunctionHandle, ValidVoidThreeArguments )
 {
-	DECLARE_TEST_ENV( "VoidThreeArguments", void, std::string, std::string, std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidThreeArguments", void, std::string, std::string, std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -44,7 +40,7 @@ TEST( TestFunctionHandle, ValidVoidThreeArguments )
 
 TEST( TestFunctionHandle, ValidStringNoArguments )
 {
-	DECLARE_TEST_ENV( "StringNoArguments", std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringNoArguments", std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -52,7 +48,7 @@ TEST( TestFunctionHandle, ValidStringNoArguments )
 
 TEST( TestFunctionHandle, ValidStringOneArgument )
 {
-	DECLARE_TEST_ENV( "StringOneArgument", std::string, std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringOneArgument", std::string, std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -60,7 +56,7 @@ TEST( TestFunctionHandle, ValidStringOneArgument )
 
 TEST( TestFunctionHandle, ValidStringTwoArguments )
 {
-	DECLARE_TEST_ENV( "StringTwoArguments", std::string, std::string, std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringTwoArguments", std::string, std::string, std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
@@ -68,7 +64,7 @@ TEST( TestFunctionHandle, ValidStringTwoArguments )
 
 TEST( TestFunctionHandle, ValidStringThreeArguments )
 {
-	DECLARE_TEST_ENV( "StringThreeArguments", std::string, std::string, std::string, std::string );
+	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringThreeArguments", std::string, std::string, std::string, std::string );
 
 	EXPECT_TRUE( func.IsValid() );
 	EXPECT_NE( nullptr, *func );
