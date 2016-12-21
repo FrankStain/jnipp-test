@@ -8,8 +8,10 @@
 	Jni::ClassHandle class_handle{ "com/pfs/jnipptest/TestStaticFieldStorage" };	\
 																					\
 	Jni::StaticFieldHandle<TYPE>	field{ class_handle, NAME "_field" };			\
+	EXPECT_TRUE( field );															\
 																					\
-	EXPECT_TRUE( field )
+	Jni::StaticFunctionHandle<void> reset_func{ class_handle, "Reset" };			\
+	reset_func.Call()
 
 
 TEST( TestStaticFieldHandle, GetBool )
