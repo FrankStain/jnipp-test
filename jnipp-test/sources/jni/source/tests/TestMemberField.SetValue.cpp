@@ -20,13 +20,13 @@
 
 
 
-TEST( TestFieldHandle, SetBool )
+TEST( TestMemberField, SetBool )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( bool, "bool" );
 	CHECK_RW( bool, false );
 };
 
-TEST( TestFieldHandle, SetStringUtf8 )
+TEST( TestMemberField, SetStringUtf8 )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( std::string, "string" );
 	
@@ -42,7 +42,7 @@ TEST( TestFieldHandle, SetStringUtf8 )
 	};
 };
 
-TEST( TestFieldHandle, SetStringUtf16 )
+TEST( TestMemberField, SetStringUtf16 )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( std::u16string, "string" );
 	
@@ -58,7 +58,7 @@ TEST( TestFieldHandle, SetStringUtf16 )
 	};
 };
 
-TEST( TestFieldHandle, SetCharStreamUtf8 )
+TEST( TestMemberField, SetCharStreamUtf8 )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( const char*, "string" );
 
@@ -66,7 +66,7 @@ TEST( TestFieldHandle, SetCharStreamUtf8 )
 	EXPECT_TRUE( field.SetValue( test_object, field_value ) );
 };
 
-TEST( TestFieldHandle, SetCharStreamUtf16 )
+TEST( TestMemberField, SetCharStreamUtf16 )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( const char16_t*, "string" );
 
@@ -74,67 +74,67 @@ TEST( TestFieldHandle, SetCharStreamUtf16 )
 	EXPECT_TRUE( field.SetValue( test_object, field_value ) );
 };
 
-TEST( TestFieldHandle, SetFloat )
+TEST( TestMemberField, SetFloat )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( float, "float" );
 	CHECK_RW( float, 32.3f );
 };
 
-TEST( TestFieldHandle, SetDouble )
+TEST( TestMemberField, SetDouble )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( double, "double" );
 	CHECK_RW( double, 62.4 );
 };
 
-TEST( TestFieldHandle, SetByte )
+TEST( TestMemberField, SetByte )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int8_t, "byte" );
 	CHECK_RW( int8_t, -120 );
 };
 
-TEST( TestFieldHandle, SetUnsignedByte )
+TEST( TestMemberField, SetUnsignedByte )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint8_t, "short" );
 	CHECK_RW( uint8_t, 250 );
 };
 
-TEST( TestFieldHandle, SetChar16 )
+TEST( TestMemberField, SetChar16 )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( char16_t, "char" );
 	CHECK_RW( char16_t, u'J' );
 };
 
-TEST( TestFieldHandle, SetShort )
+TEST( TestMemberField, SetShort )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int16_t, "short" );
 	CHECK_RW( int16_t, 32000 );
 };
 
-TEST( TestFieldHandle, SetUnsignedShort )
+TEST( TestMemberField, SetUnsignedShort )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint16_t, "int" );
 	CHECK_RW( uint16_t, 64328 );
 };
 
-TEST( TestFieldHandle, SetInt )
+TEST( TestMemberField, SetInt )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int32_t, "int" );
 	CHECK_RW( int32_t, -58 );
 };
 
-TEST( TestFieldHandle, SetUnsignedInt )
+TEST( TestMemberField, SetUnsignedInt )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint32_t, "long" );
 	CHECK_RW( uint32_t, 280 );
 };
 
-TEST( TestFieldHandle, SetLong )
+TEST( TestMemberField, SetLong )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int64_t, "long" );
 	CHECK_RW( int64_t, 1LL << 33 );
 };
 
-TEST( TestFieldHandle, SetUnsignedLong )
+TEST( TestMemberField, SetUnsignedLong )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint64_t, "long" );
 	CHECK_RW( uint64_t, 1LL << 35 );

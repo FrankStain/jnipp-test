@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestFunctionHandle, ValidVoidNoArguments )
+TEST( TestMemberFunction, ValidVoidNoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidNoArguments", void );
 
@@ -14,7 +14,7 @@ TEST( TestFunctionHandle, ValidVoidNoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidVoidOneArgument )
+TEST( TestMemberFunction, ValidVoidOneArgument )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidOneArgument", void, std::string );
 
@@ -22,7 +22,7 @@ TEST( TestFunctionHandle, ValidVoidOneArgument )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidVoidTwoArguments )
+TEST( TestMemberFunction, ValidVoidTwoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidTwoArguments", void, std::string, std::string );
 
@@ -30,7 +30,7 @@ TEST( TestFunctionHandle, ValidVoidTwoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidVoidThreeArguments )
+TEST( TestMemberFunction, ValidVoidThreeArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidThreeArguments", void, std::string, std::string, std::string );
 
@@ -38,7 +38,7 @@ TEST( TestFunctionHandle, ValidVoidThreeArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidStringNoArguments )
+TEST( TestMemberFunction, ValidStringNoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringNoArguments", std::string );
 
@@ -46,7 +46,7 @@ TEST( TestFunctionHandle, ValidStringNoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidStringOneArgument )
+TEST( TestMemberFunction, ValidStringOneArgument )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringOneArgument", std::string, std::string );
 
@@ -54,7 +54,7 @@ TEST( TestFunctionHandle, ValidStringOneArgument )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidStringTwoArguments )
+TEST( TestMemberFunction, ValidStringTwoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringTwoArguments", std::string, std::string, std::string );
 
@@ -62,7 +62,7 @@ TEST( TestFunctionHandle, ValidStringTwoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestFunctionHandle, ValidStringThreeArguments )
+TEST( TestMemberFunction, ValidStringThreeArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringThreeArguments", std::string, std::string, std::string, std::string );
 

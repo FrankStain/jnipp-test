@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestFunctionHandle, CallVoidNoArguments )
+TEST( TestMemberFunction, CallVoidNoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidNoArguments", void );
 
@@ -15,7 +15,7 @@ TEST( TestFunctionHandle, CallVoidNoArguments )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallVoidOneArgument )
+TEST( TestMemberFunction, CallVoidOneArgument )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidOneArgument", void, const char* );
 
@@ -24,7 +24,7 @@ TEST( TestFunctionHandle, CallVoidOneArgument )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallVoidTwoArguments )
+TEST( TestMemberFunction, CallVoidTwoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidTwoArguments", void, const char*, const char* );
 
@@ -33,7 +33,7 @@ TEST( TestFunctionHandle, CallVoidTwoArguments )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallVoidThreeArguments )
+TEST( TestMemberFunction, CallVoidThreeArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "VoidThreeArguments", void, const char*, const char*, const char* );
 
@@ -42,7 +42,7 @@ TEST( TestFunctionHandle, CallVoidThreeArguments )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallStringNoArguments )
+TEST( TestMemberFunction, CallStringNoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringNoArguments", std::string );
 
@@ -52,7 +52,7 @@ TEST( TestFunctionHandle, CallStringNoArguments )
 	EXPECT_STREQ( "Jni++", ret.c_str() );
 };
 
-TEST( TestFunctionHandle, CallStringOneArgument )
+TEST( TestMemberFunction, CallStringOneArgument )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringOneArgument", std::string, const char* );
 
@@ -62,7 +62,7 @@ TEST( TestFunctionHandle, CallStringOneArgument )
 	EXPECT_STREQ( "1", ret.c_str() );
 };
 
-TEST( TestFunctionHandle, CallStringTwoArguments )
+TEST( TestMemberFunction, CallStringTwoArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringTwoArguments", std::string, const char*, const char* );
 
@@ -72,7 +72,7 @@ TEST( TestFunctionHandle, CallStringTwoArguments )
 	EXPECT_STREQ( "1 2", ret.c_str() );
 };
 
-TEST( TestFunctionHandle, CallStringThreeArguments )
+TEST( TestMemberFunction, CallStringThreeArguments )
 {
 	DECLARE_MEMBER_FUNCTION_TEST_ENV( "StringThreeArguments", std::string, const char*, const char*, const char* );
 

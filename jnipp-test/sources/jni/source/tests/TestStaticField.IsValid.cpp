@@ -6,112 +6,112 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestStaticFieldStorage, ValidBool )
+TEST( TestStaticField, ValidBool )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( bool, "bool" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidStringUtf8 )
+TEST( TestStaticField, ValidStringUtf8 )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( std::string, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidStringUtf16 )
+TEST( TestStaticField, ValidStringUtf16 )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( std::u16string, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidCharStreamUtf8 )
+TEST( TestStaticField, ValidCharStreamUtf8 )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( const char*, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidCharStreamUtf16 )
+TEST( TestStaticField, ValidCharStreamUtf16 )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( const char16_t*, "string" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidFloat )
+TEST( TestStaticField, ValidFloat )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( float, "float" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidDouble )
+TEST( TestStaticField, ValidDouble )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( double, "double" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidByte )
+TEST( TestStaticField, ValidByte )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int8_t, "byte" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidUnsignedByte )
+TEST( TestStaticField, ValidUnsignedByte )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint8_t, "short" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidChar16 )
+TEST( TestStaticField, ValidChar16 )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( char16_t, "char" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidShort )
+TEST( TestStaticField, ValidShort )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int16_t, "short" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidUnsignedShort )
+TEST( TestStaticField, ValidUnsignedShort )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint16_t, "int" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidInt )
+TEST( TestStaticField, ValidInt )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int32_t, "int" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidUnsignedInt )
+TEST( TestStaticField, ValidUnsignedInt )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint32_t, "long" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidLong )
+TEST( TestStaticField, ValidLong )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int64_t, "long" );
 	EXPECT_TRUE( field.IsValid() );
 	EXPECT_NE( nullptr, *field );
 };
 
-TEST( TestStaticFieldStorage, ValidUnsignedLong )
+TEST( TestStaticField, ValidUnsignedLong )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint64_t, "long" );
 	EXPECT_TRUE( field.IsValid() );

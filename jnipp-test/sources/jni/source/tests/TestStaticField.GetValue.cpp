@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestStaticFieldHandle, GetBool )
+TEST( TestStaticField, GetBool )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( bool, "bool" );
 
@@ -16,7 +16,7 @@ TEST( TestStaticFieldHandle, GetBool )
 	EXPECT_TRUE( field_value );
 };
 
-TEST( TestStaticFieldHandle, GetString )
+TEST( TestStaticField, GetString )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( std::string, "string" );
 
@@ -26,7 +26,7 @@ TEST( TestStaticFieldHandle, GetString )
 	EXPECT_STREQ( "Jni++", field_value.c_str() );
 };
 
-TEST( TestStaticFieldHandle, GetFloat )
+TEST( TestStaticField, GetFloat )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( float, "float" );
 
@@ -36,7 +36,7 @@ TEST( TestStaticFieldHandle, GetFloat )
 	EXPECT_EQ( 13.0f, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetDouble )
+TEST( TestStaticField, GetDouble )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( double, "double" );
 
@@ -46,7 +46,7 @@ TEST( TestStaticFieldHandle, GetDouble )
 	EXPECT_EQ( 42.0, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetByte )
+TEST( TestStaticField, GetByte )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int8_t, "byte" );
 
@@ -56,7 +56,7 @@ TEST( TestStaticFieldHandle, GetByte )
 	EXPECT_EQ( 28, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetUnsignedByte )
+TEST( TestStaticField, GetUnsignedByte )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint8_t, "short" );
 
@@ -66,7 +66,7 @@ TEST( TestStaticFieldHandle, GetUnsignedByte )
 	EXPECT_EQ( 24, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetChar16 )
+TEST( TestStaticField, GetChar16 )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( char16_t, "char" );
 
@@ -76,7 +76,7 @@ TEST( TestStaticFieldHandle, GetChar16 )
 	EXPECT_EQ( u'S', field_value );
 };
 
-TEST( TestStaticFieldHandle, GetShort )
+TEST( TestStaticField, GetShort )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int16_t, "short" );
 
@@ -86,7 +86,7 @@ TEST( TestStaticFieldHandle, GetShort )
 	EXPECT_EQ( 24, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetUnsignedShort )
+TEST( TestStaticField, GetUnsignedShort )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint16_t, "int" );
 
@@ -96,7 +96,7 @@ TEST( TestStaticFieldHandle, GetUnsignedShort )
 	EXPECT_EQ( 0, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetInt )
+TEST( TestStaticField, GetInt )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int32_t, "int" );
 
@@ -106,7 +106,7 @@ TEST( TestStaticFieldHandle, GetInt )
 	EXPECT_EQ( 65536, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetUnsignedInt )
+TEST( TestStaticField, GetUnsignedInt )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint32_t, "long" );
 
@@ -116,7 +116,7 @@ TEST( TestStaticFieldHandle, GetUnsignedInt )
 	EXPECT_EQ( 0, field_value );
 };
 
-TEST( TestStaticFieldHandle, GetLong )
+TEST( TestStaticField, GetLong )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( int64_t, "long" );
 
@@ -126,7 +126,7 @@ TEST( TestStaticFieldHandle, GetLong )
 	EXPECT_EQ( ( 1LL << 48 ), field_value );
 };
 
-TEST( TestStaticFieldHandle, GetUnsignedLong )
+TEST( TestStaticField, GetUnsignedLong )
 {
 	DECLARE_STATIC_FIELD_TEST_ENV( uint64_t, "long" );
 

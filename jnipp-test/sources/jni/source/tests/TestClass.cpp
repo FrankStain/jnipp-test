@@ -4,21 +4,21 @@
 #include <gtest/gtest.h>
 
 
-TEST( TestClassHandle, EmptyIsValid )
+TEST( TestClass, EmptyIsValid )
 {
 	Jni::Class class_handle;
 
 	EXPECT_FALSE( class_handle.IsValid() );
 };
 
-TEST( TestClassHandle, ConstructedIsValid )
+TEST( TestClass, ConstructedIsValid )
 {
 	Jni::Class class_handle{ "java/lang/String" };
 
 	EXPECT_TRUE( class_handle.IsValid() );
 };
 
-TEST( TestClassHandle, Invalidate )
+TEST( TestClass, Invalidate )
 {
 	Jni::Class class_handle{ "java/lang/String" };
 
@@ -28,7 +28,7 @@ TEST( TestClassHandle, Invalidate )
 	EXPECT_FALSE( class_handle.IsValid() );
 };
 
-TEST( TestClassHandle, AssignString )
+TEST( TestClass, AssignString )
 {
 	Jni::Class class_handle;
 
@@ -38,7 +38,7 @@ TEST( TestClassHandle, AssignString )
 	EXPECT_TRUE( class_handle.IsValid() );
 };
 
-TEST( TestClassHandle, CopyValid )
+TEST( TestClass, CopyValid )
 {
 	Jni::Class class_handle1;
 	const Jni::Class class_handle2{ "java/lang/String" };
@@ -55,7 +55,7 @@ TEST( TestClassHandle, CopyValid )
 	EXPECT_TRUE( class_handle2.IsValid() );
 };
 
-TEST( TestClassHandle, MoveValid )
+TEST( TestClass, MoveValid )
 {
 	Jni::Class class_handle1;
 	Jni::Class class_handle2{ "java/lang/String" };
@@ -72,7 +72,7 @@ TEST( TestClassHandle, MoveValid )
 	EXPECT_FALSE( class_handle1.IsValid() );
 };
 
-TEST( TestClassHandle, GetReference )
+TEST( TestClass, GetReference )
 {
 	Jni::Class class_handle{ "java/lang/String" };
 
@@ -80,7 +80,7 @@ TEST( TestClassHandle, GetReference )
 	EXPECT_NE( nullptr, *class_handle );
 };
 
-TEST( TestClassHandle, ValidGetName )
+TEST( TestClass, ValidGetName )
 {
 	Jni::Class class_handle{ "java/lang/String" };
 
@@ -90,7 +90,7 @@ TEST( TestClassHandle, ValidGetName )
 	EXPECT_STREQ( "java/lang/String", class_name.c_str() );
 };
 
-TEST( TestClassHandle, InvalidGetName )
+TEST( TestClass, InvalidGetName )
 {
 	Jni::Class class_handle;
 

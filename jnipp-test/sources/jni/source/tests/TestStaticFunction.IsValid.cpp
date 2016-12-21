@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestStaticFunctionHandle, ValidVoidNoArguments )
+TEST( TestStaticFunction, ValidVoidNoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidNoArguments", void );
 
@@ -14,7 +14,7 @@ TEST( TestStaticFunctionHandle, ValidVoidNoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidVoidOneArgument )
+TEST( TestStaticFunction, ValidVoidOneArgument )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidOneArgument", void, std::string );
 
@@ -22,7 +22,7 @@ TEST( TestStaticFunctionHandle, ValidVoidOneArgument )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidVoidTwoArguments )
+TEST( TestStaticFunction, ValidVoidTwoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidTwoArguments", void, std::string, std::string );
 
@@ -30,7 +30,7 @@ TEST( TestStaticFunctionHandle, ValidVoidTwoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidVoidThreeArguments )
+TEST( TestStaticFunction, ValidVoidThreeArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidThreeArguments", void, std::string, std::string, std::string );
 
@@ -38,7 +38,7 @@ TEST( TestStaticFunctionHandle, ValidVoidThreeArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidStringNoArguments )
+TEST( TestStaticFunction, ValidStringNoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringNoArguments", std::string );
 
@@ -46,7 +46,7 @@ TEST( TestStaticFunctionHandle, ValidStringNoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidStringOneArgument )
+TEST( TestStaticFunction, ValidStringOneArgument )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringOneArgument", std::string, std::string );
 
@@ -54,7 +54,7 @@ TEST( TestStaticFunctionHandle, ValidStringOneArgument )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidStringTwoArguments )
+TEST( TestStaticFunction, ValidStringTwoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringTwoArguments", std::string, std::string, std::string );
 
@@ -62,7 +62,7 @@ TEST( TestStaticFunctionHandle, ValidStringTwoArguments )
 	EXPECT_NE( nullptr, *func );
 };
 
-TEST( TestStaticFunctionHandle, ValidStringThreeArguments )
+TEST( TestStaticFunction, ValidStringThreeArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringThreeArguments", std::string, std::string, std::string, std::string );
 

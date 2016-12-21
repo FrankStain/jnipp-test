@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestFieldHandle, GetBool )
+TEST( TestMemberField, GetBool )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( bool, "bool" );
 
@@ -16,7 +16,7 @@ TEST( TestFieldHandle, GetBool )
 	EXPECT_TRUE( field_value );
 };
 
-TEST( TestFieldHandle, GetString )
+TEST( TestMemberField, GetString )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( std::string, "string" );
 
@@ -26,7 +26,7 @@ TEST( TestFieldHandle, GetString )
 	EXPECT_STREQ( "Jni++", field_value.c_str() );
 };
 
-TEST( TestFieldHandle, GetFloat )
+TEST( TestMemberField, GetFloat )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( float, "float" );
 
@@ -36,7 +36,7 @@ TEST( TestFieldHandle, GetFloat )
 	EXPECT_EQ( 13.0f, field_value );
 };
 
-TEST( TestFieldHandle, GetDouble )
+TEST( TestMemberField, GetDouble )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( double, "double" );
 
@@ -46,7 +46,7 @@ TEST( TestFieldHandle, GetDouble )
 	EXPECT_EQ( 42.0, field_value );
 };
 
-TEST( TestFieldHandle, GetByte )
+TEST( TestMemberField, GetByte )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int8_t, "byte" );
 
@@ -56,7 +56,7 @@ TEST( TestFieldHandle, GetByte )
 	EXPECT_EQ( 28, field_value );
 };
 
-TEST( TestFieldHandle, GetUnsignedByte )
+TEST( TestMemberField, GetUnsignedByte )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint8_t, "short" );
 
@@ -66,7 +66,7 @@ TEST( TestFieldHandle, GetUnsignedByte )
 	EXPECT_EQ( 24, field_value );
 };
 
-TEST( TestFieldHandle, GetChar16 )
+TEST( TestMemberField, GetChar16 )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( char16_t, "char" );
 
@@ -76,7 +76,7 @@ TEST( TestFieldHandle, GetChar16 )
 	EXPECT_EQ( u'S', field_value );
 };
 
-TEST( TestFieldHandle, GetShort )
+TEST( TestMemberField, GetShort )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int16_t, "short" );
 
@@ -86,7 +86,7 @@ TEST( TestFieldHandle, GetShort )
 	EXPECT_EQ( 24, field_value );
 };
 
-TEST( TestFieldHandle, GetUnsignedShort )
+TEST( TestMemberField, GetUnsignedShort )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint16_t, "int" );
 
@@ -96,7 +96,7 @@ TEST( TestFieldHandle, GetUnsignedShort )
 	EXPECT_EQ( 0, field_value );
 };
 
-TEST( TestFieldHandle, GetInt )
+TEST( TestMemberField, GetInt )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int32_t, "int" );
 
@@ -106,7 +106,7 @@ TEST( TestFieldHandle, GetInt )
 	EXPECT_EQ( 65536, field_value );
 };
 
-TEST( TestFieldHandle, GetUnsignedInt )
+TEST( TestMemberField, GetUnsignedInt )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint32_t, "long" );
 
@@ -116,7 +116,7 @@ TEST( TestFieldHandle, GetUnsignedInt )
 	EXPECT_EQ( 0, field_value );
 };
 
-TEST( TestFieldHandle, GetLong )
+TEST( TestMemberField, GetLong )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( int64_t, "long" );
 
@@ -126,7 +126,7 @@ TEST( TestFieldHandle, GetLong )
 	EXPECT_EQ( ( 1LL << 48 ), field_value );
 };
 
-TEST( TestFieldHandle, GetUnsignedLong )
+TEST( TestMemberField, GetUnsignedLong )
 {
 	DECLARE_MEMBER_FIELD_TEST_ENV( uint64_t, "long" );
 

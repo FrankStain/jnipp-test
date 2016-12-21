@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-TEST( TestStaticFunctionHandle, CallVoidNoArguments )
+TEST( TestStaticFunction, CallVoidNoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidNoArguments", void );
 
@@ -15,7 +15,7 @@ TEST( TestStaticFunctionHandle, CallVoidNoArguments )
 	EXAMINE_STATIC_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestStaticFunctionHandle, CallVoidOneArgument )
+TEST( TestStaticFunction, CallVoidOneArgument )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidOneArgument", void, const char* );
 
@@ -24,7 +24,7 @@ TEST( TestStaticFunctionHandle, CallVoidOneArgument )
 	EXAMINE_STATIC_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestStaticFunctionHandle, CallVoidTwoArguments )
+TEST( TestStaticFunction, CallVoidTwoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidTwoArguments", void, const char*, const char* );
 
@@ -33,7 +33,7 @@ TEST( TestStaticFunctionHandle, CallVoidTwoArguments )
 	EXAMINE_STATIC_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestStaticFunctionHandle, CallVoidThreeArguments )
+TEST( TestStaticFunction, CallVoidThreeArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "VoidThreeArguments", void, const char*, const char*, const char* );
 
@@ -42,7 +42,7 @@ TEST( TestStaticFunctionHandle, CallVoidThreeArguments )
 	EXAMINE_STATIC_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestStaticFunctionHandle, CallStringNoArguments )
+TEST( TestStaticFunction, CallStringNoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringNoArguments", std::string );
 
@@ -52,7 +52,7 @@ TEST( TestStaticFunctionHandle, CallStringNoArguments )
 	EXPECT_STREQ( "Jni++", ret.c_str() );
 };
 
-TEST( TestStaticFunctionHandle, CallStringOneArgument )
+TEST( TestStaticFunction, CallStringOneArgument )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringOneArgument", std::string, const char* );
 
@@ -62,7 +62,7 @@ TEST( TestStaticFunctionHandle, CallStringOneArgument )
 	EXPECT_STREQ( "1", ret.c_str() );
 };
 
-TEST( TestStaticFunctionHandle, CallStringTwoArguments )
+TEST( TestStaticFunction, CallStringTwoArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringTwoArguments", std::string, const char*, const char* );
 
@@ -72,7 +72,7 @@ TEST( TestStaticFunctionHandle, CallStringTwoArguments )
 	EXPECT_STREQ( "1 2", ret.c_str() );
 };
 
-TEST( TestStaticFunctionHandle, CallStringThreeArguments )
+TEST( TestStaticFunction, CallStringThreeArguments )
 {
 	DECLARE_STATIC_FUNCTION_TEST_ENV( "StringThreeArguments", std::string, const char*, const char*, const char* );
 

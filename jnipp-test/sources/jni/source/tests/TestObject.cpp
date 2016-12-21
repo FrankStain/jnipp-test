@@ -4,14 +4,14 @@
 #include <gtest/gtest.h>
 
 
-TEST( TestObjectHandle, EmptyIsValid )
+TEST( TestObject, EmptyIsValid )
 {
 	Jni::Object object_handle;
 
 	EXPECT_FALSE( object_handle.IsValid() );
 };
 
-TEST( TestObjectHandle, NewObject )
+TEST( TestObject, NewObject )
 {
 	Jni::Object object_handle;
 
@@ -22,7 +22,7 @@ TEST( TestObjectHandle, NewObject )
 	EXPECT_TRUE( object_handle.IsValid() );
 };
 
-TEST( TestObjectHandle, Invalidate )
+TEST( TestObject, Invalidate )
 {
 	Jni::Object object_handle{ Jni::Object::NewObject( { "java/lang/String" } ) };
 
@@ -32,7 +32,7 @@ TEST( TestObjectHandle, Invalidate )
 	EXPECT_FALSE( object_handle.IsValid() );
 };
 
-TEST( TestObjectHandle, CopyFromClassHandle )
+TEST( TestObject, CopyFromClassHandle )
 {
 	const Jni::Class class_handle{ "java/lang/String" };
 
@@ -42,7 +42,7 @@ TEST( TestObjectHandle, CopyFromClassHandle )
 	EXPECT_TRUE( object_handle.IsValid() );
 };
 
-TEST( TestObjectHandle, MoveFromClassHandle )
+TEST( TestObject, MoveFromClassHandle )
 {
 	Jni::Class class_handle{ "java/lang/String" };
 
@@ -53,7 +53,7 @@ TEST( TestObjectHandle, MoveFromClassHandle )
 	EXPECT_FALSE( class_handle.IsValid() );
 };
 
-TEST( TestObjectHandle, CopyValid )
+TEST( TestObject, CopyValid )
 {
 	const Jni::Object object_handle1{ Jni::Object::NewObject( { "java/lang/String" } ) };
 
@@ -64,7 +64,7 @@ TEST( TestObjectHandle, CopyValid )
 	EXPECT_TRUE( object_handle1.IsValid() );
 };
 
-TEST( TestObjectHandle, MoveValid )
+TEST( TestObject, MoveValid )
 {
 	Jni::Object object_handle1{ Jni::Object::NewObject( { "java/lang/String" } ) };
 
@@ -75,7 +75,7 @@ TEST( TestObjectHandle, MoveValid )
 	EXPECT_FALSE( object_handle1.IsValid() );
 };
 
-TEST( TestObjectHandle, GetClassHandle )
+TEST( TestObject, GetClassHandle )
 {
 	Jni::Object object_handle{ Jni::Object::NewObject( { "java/lang/String" } ) };
 
@@ -83,7 +83,7 @@ TEST( TestObjectHandle, GetClassHandle )
 	EXPECT_TRUE( object_handle.GetClass().IsValid() );
 };
 
-TEST( TestObjectHandle, GetReference )
+TEST( TestObject, GetReference )
 {
 	Jni::Object object_handle{ Jni::Object::NewObject( { "java/lang/String" } ) };
 

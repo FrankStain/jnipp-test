@@ -6,7 +6,7 @@
 #include "TestingEnvironment.h"
 
 
-//TEST( TestFunctionHandle, CheckFunctionIds )
+//TEST( TestMemberFunction, CheckFunctionIds )
 //{
 //	Jni::Class base_class{ "com/pfs/jnipptest/TestFunctionContainer" };
 //	Jni::Class derived_class{ "com/pfs/jnipptest/TestFunctionDerivedContainer" };
@@ -17,7 +17,7 @@
 //	EXPECT_EQ( *base_class_func, *derived_class_func );
 //};
 
-TEST( TestFunctionHandle, CallNvVoidNoArguments )
+TEST( TestMemberFunction, CallNvVoidNoArguments )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "VoidNoArguments", void );
 
@@ -26,7 +26,7 @@ TEST( TestFunctionHandle, CallNvVoidNoArguments )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallNvVoidOneArgument )
+TEST( TestMemberFunction, CallNvVoidOneArgument )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "VoidOneArgument", void, const char* );
 
@@ -35,7 +35,7 @@ TEST( TestFunctionHandle, CallNvVoidOneArgument )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallNvVoidTwoArguments )
+TEST( TestMemberFunction, CallNvVoidTwoArguments )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "VoidTwoArguments", void, const char*, const char* );
 
@@ -44,7 +44,7 @@ TEST( TestFunctionHandle, CallNvVoidTwoArguments )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallNvVoidThreeArguments )
+TEST( TestMemberFunction, CallNvVoidThreeArguments )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "VoidThreeArguments", void, const char*, const char*, const char* );
 
@@ -53,7 +53,7 @@ TEST( TestFunctionHandle, CallNvVoidThreeArguments )
 	EXAMINE_MEMBER_FUNCTION_CALL_FLAG();
 };
 
-TEST( TestFunctionHandle, CallNvStringNoArguments )
+TEST( TestMemberFunction, CallNvStringNoArguments )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "StringNoArguments", std::string );
 
@@ -63,7 +63,7 @@ TEST( TestFunctionHandle, CallNvStringNoArguments )
 	EXPECT_STREQ( "Jni++", ret.c_str() );
 };
 
-TEST( TestFunctionHandle, CallNvStringOneArgument )
+TEST( TestMemberFunction, CallNvStringOneArgument )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "StringOneArgument", std::string, const char* );
 
@@ -73,7 +73,7 @@ TEST( TestFunctionHandle, CallNvStringOneArgument )
 	EXPECT_STREQ( "1", ret.c_str() );
 };
 
-TEST( TestFunctionHandle, CallNvStringTwoArguments )
+TEST( TestMemberFunction, CallNvStringTwoArguments )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "StringTwoArguments", std::string, const char*, const char* );
 
@@ -83,7 +83,7 @@ TEST( TestFunctionHandle, CallNvStringTwoArguments )
 	EXPECT_STREQ( "1 2", ret.c_str() );
 };
 
-TEST( TestFunctionHandle, CallNvStringThreeArguments )
+TEST( TestMemberFunction, CallNvStringThreeArguments )
 {
 	DECLARE_MEMBER_NONVIRTUAL_FUNCTION_TEST_ENV( "StringThreeArguments", std::string, const char*, const char*, const char* );
 
