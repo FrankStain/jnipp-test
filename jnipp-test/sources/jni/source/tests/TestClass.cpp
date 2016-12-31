@@ -99,3 +99,23 @@ TEST( TestClass, InvalidGetName )
 	const std::string class_name{ class_handle.GetName() };
 	EXPECT_STREQ( "", class_name.c_str() );
 };
+
+TEST( TestClass, ArrayClass )
+{
+	Jni::Class test_class;
+
+	//test_class = "Ljava/lang/String;";
+	//EXPECT_TRUE( test_class.IsValid() );
+
+	//test_class = "[java/lang/String";
+	//EXPECT_TRUE( test_class.IsValid() );
+
+	test_class = "[Ljava/lang/String;";
+	EXPECT_TRUE( test_class.IsValid() );
+
+	//test_class = "[[java/lang/String";
+	//EXPECT_TRUE( test_class.IsValid() );
+
+	test_class = "[[Ljava/lang/String;";
+	EXPECT_TRUE( test_class.IsValid() );
+};
