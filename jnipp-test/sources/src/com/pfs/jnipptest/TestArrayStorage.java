@@ -23,9 +23,11 @@ final class TestArrayStorage
 		true, false, true, true, false, true, false, true,
 	};
 
-	private boolean[] m_bool_in_array	= null;
+	private String[] m_string_out_array	= new String[]{
+		"Hello", "Jni++", "!!"
+	};
 
-	private int[] m_int_in_array		= null;
+	private boolean[] m_bool_in_array	= null;
 
 	private String[] m_string_in_array	= null;
 }
